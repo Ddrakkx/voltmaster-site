@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Volt Master — фари, задні ліхтарі, Bi-LED-лінзи | Корнин біля Рівного</title>
+<meta name="description" content="Переробка американських ліхтарів, Bi-LED-лінзи, тюнінг і ремонт фар. Корнин біля Рівного, приймаємо Новою поштою з усієї України.">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:site_name" content="Volt Master">
+<meta property="og:title" content="Volt Master — світло, яке помічають">
+<meta property="og:description" content="Переробка американських ліхтарів, Bi-LED-лінзи, тюнінг і ремонт фар. Корнин біля Рівного або Новою поштою з усієї України.">
+<meta property="og:image" content="media/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Volt Master",
+  "description": "Переробка американських ліхтарів, Bi-LED-лінзи, тюнінг і ремонт фар та задніх ліхтарів.",
+  "image": "media/og.jpg",
+  "address": { "@type": "PostalAddress", "streetAddress": "вул. Центральна, 41", "addressLocality": "Корнин", "addressRegion": "Рівненська область", "addressCountry": "UA" },
+  "geo": { "@type": "GeoCoordinates", "latitude": 50.5596886, "longitude": 26.2871954 },
+  "openingHours": "Mo-Fr 09:00-20:00",
+  "areaServed": "UA",
+  "paymentAccepted": "Cash, Credit Card, Invoice",
+  "hasMap": "https://maps.app.goo.gl/CvHZXUUz2emazCJp6",
+  "sameAs": ["https://www.instagram.com/voltmaster.rv/", "https://t.me/voltmaster_demo_bot"]
+}
+</script>
+<script>
+  document.documentElement.classList.add('js');
+  try { var t = localStorage.getItem('vm-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #0a0a0b; --surface: #141417; --card: #1c1c20; --card-hi: #232327;
+  --border: rgba(255,255,255,.09);
+  --text: #ffffff; --muted: #9a9aa1; --muted-2: #6b6b70;
+  --red: #ff3b3b;          /* текст і акценти: стоп-сигнал */
+  --red-btn: #e0242c;      /* фон кнопок під білий текст */
+  --red-btn-hi: #f0323a;
+  --red-soft: rgba(255,59,59,.12);
+  --amber: #ffa21a;        /* поворот: лише для світлових ефектів */
+  --on-red: #ffffff;
+  --radius: 14px; --radius-s: 10px;
+  --wrap: 1180px; --gutter: 24px;
+  --ease: cubic-bezier(.2,.7,.2,1);
+  --header-h: 72px;
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg: #efeee8; --surface: #e8e6de; --card: #f8f7f2; --card-hi: #ecebe3;
+  --border: rgba(45,42,32,.16);
+  --text: #222320; --muted: #5c5e55; --muted-2: #686b61;
+  --red: #c4121b; --red-btn: #d01b23; --red-btn-hi: #b8141c; --red-soft: rgba(208,27,35,.1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 12px); text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 400 16px/1.6 Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+img, video { display: block; max-width: 100%; }
+a { color: inherit; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.accent { color: var(--red); }
+h1, h2, h3 { font-family: Oswald, Impact, sans-serif; font-weight: 600; letter-spacing: .01em; }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 6px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- кнопки */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 28px;
+  border-radius: var(--radius-s); border: 1px solid transparent; font: 600 15px/1 Oswald, sans-serif; letter-spacing: .06em;
+  text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background-color .18s var(--ease), transform .12s var(--ease), border-color .18s var(--ease), box-shadow .18s var(--ease); }
+.btn:active { transform: scale(.96); }
+.btn svg { width: 18px; height: 18px; flex: none; }
+.btn-red { background: var(--red-btn); color: var(--on-red); }
+.btn-red:hover { background: var(--red-btn-hi); }
+.btn-red:active { background: #c81d24; }
+.btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
+.btn-ghost:hover { border-color: var(--red); }
+.btn-ghost:active { background: var(--red-soft); }
+.link { color: var(--text); text-decoration: underline; text-decoration-color: var(--muted-2); text-underline-offset: 3px; transition: text-decoration-color .18s var(--ease), color .18s var(--ease); }
+.link:hover { text-decoration-color: var(--red); }
+
+/* ---------- шапка */
+.site-header { position: sticky; top: 0; z-index: 50; background: rgba(10,10,11,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+html[data-theme="light"] .site-header { background: rgba(232,230,222,.94); }
+.header-in { display: flex; align-items: center; gap: 28px; height: var(--header-h); }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex: none; }
+.logo-mark { width: 38px; height: 38px; border-radius: 9px; background: var(--red-btn); color: #fff; display: grid; place-items: center; transition: transform .2s var(--ease); }
+.logo:hover .logo-mark { transform: rotate(-8deg); }
+.logo-mark svg { width: 22px; height: 22px; }
+.logo-word { font: 700 22px/1 Inter, sans-serif; letter-spacing: -.02em; }
+.logo-word b { color: var(--red); font-weight: 700; }
+.nav { display: flex; gap: 22px; }
+.nav a { font: 500 13px/1 Oswald, sans-serif; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; color: var(--muted); padding: 8px 0; transition: color .15s; }
+.nav a:hover { color: var(--text); }
+.header-loc { margin-left: auto; display: flex; align-items: center; gap: 10px; font-size: 13px; line-height: 1.35; text-decoration: none; border-radius: 8px; transition: color .18s var(--ease); }
+.header-loc svg { width: 18px; height: 18px; color: var(--muted); flex: none; transition: color .18s var(--ease); }
+.header-loc:hover svg { color: var(--red); }
+.header-loc strong { display: block; font-weight: 600; }
+.header-loc em { font-style: normal; }
+.header-loc .addr { color: var(--muted); }
+.header-loc .map-hint { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+.header-loc:hover .map-hint { color: var(--text); }
+.theme-toggle { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border); background: var(--card); color: var(--text); display: grid; place-items: center; cursor: pointer; flex: none; transition: transform .12s var(--ease), border-color .18s var(--ease); }
+.theme-toggle:hover { border-color: var(--muted-2); }
+.theme-toggle:active { transform: scale(.9); }
+.theme-toggle svg { width: 18px; height: 18px; }
+.theme-toggle .moon, html[data-theme="light"] .theme-toggle .sun { display: none; }
+html[data-theme="light"] .theme-toggle .moon { display: block; }
+.header-cta { min-height: 42px; padding: 0 18px; font-size: 13px; }
+
+/* ---------- перший екран */
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--border); background: linear-gradient(135deg, #1a0d0e, var(--bg) 60%); }
+html[data-theme="light"] .hero { background: linear-gradient(135deg, #ead9d4, var(--bg) 60%); }
+.hero-in { display: grid; grid-template-columns: 1fr 1.05fr; gap: 48px; align-items: center; padding-top: 72px; padding-bottom: 84px; }
+.hero h1 { margin: 0 0 24px; font-size: clamp(44px, 6.4vw, 84px); line-height: .98; text-transform: uppercase; }
+.hero p { margin: 0 0 16px; color: var(--muted); font-size: 17px; max-width: 34em; }
+.hero p strong { color: var(--text); font-weight: 600; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.hero-actions .btn-red { min-width: 280px; }
+.hero-note { margin-top: 14px !important; font-size: 14px !important; }
+
+/* Фото з «живими» ліхтарями: шар ліхтарів має ту саму систему координат, що й фото,
+   тому відсотки нижче — це місця ліхтарів на самому знімку */
+.hero-photo { position: relative; margin: 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); aspect-ratio: 1180 / 1080; background: #0d0d0f; --stage-shift: -10.65%; }
+.hero-stage { position: absolute; left: 0; right: 0; top: 0; aspect-ratio: 1180 / 1304; transform: translateY(var(--stage-shift)); }
+.hero-stage > img { width: 100%; height: 100%; filter: brightness(var(--photo-b, 1)) saturate(var(--photo-s, 1)); transition: filter .6s cubic-bezier(.2,0,0,1) .15s; }
+.js .hero-photo.is-off { --photo-b: .35; --photo-s: .7; }
+.hero-photo figcaption { position: absolute; left: 14px; top: 14px; padding: 7px 12px; border-radius: 8px; background: rgba(10,10,11,.78); color: #fff; font-size: 13px; font-weight: 500; }
+.hero-photo figcaption span { color: rgba(255,255,255,.6); }
+
+/* Світло. Основа — фото в режимі «лише габарити» (bmw-tail.jpg). Стоп і поворот —
+   це справжні пікселі вихідного фото (знято на гальмі, з жовтою смугою), показані крізь
+   маски світловодів (media/m-*.png). Поверх — адитивний ореол і відсвіт на фарбі. */
+.fx { position: absolute; inset: 0; opacity: 0; pointer-events: none;
+  -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+.fx-photo { background: url(media/bmw-m340i.jpg) 0 0 / 100% 100%; }
+.fx-brake { -webkit-mask-image: url(media/m-brake.png); mask-image: url(media/m-brake.png); }
+@property --sweep-r { syntax: "<percentage>"; inherits: false; initial-value: 83.3%; }
+@property --sweep-l { syntax: "<percentage>"; inherits: false; initial-value: 13.1%; }
+.fx-turn-r, .fx-turn-l { -webkit-mask-composite: source-in; mask-composite: intersect; }
+.fx-turn-r { -webkit-mask-image: url(media/m-strip-r.png), linear-gradient(to right, #000 var(--sweep-r), transparent var(--sweep-r));
+  mask-image: url(media/m-strip-r.png), linear-gradient(to right, #000 var(--sweep-r), transparent var(--sweep-r)); }
+.fx-turn-l { -webkit-mask-image: url(media/m-strip-l.png), linear-gradient(to right, transparent var(--sweep-l), #000 var(--sweep-l));
+  mask-image: url(media/m-strip-l.png), linear-gradient(to right, transparent var(--sweep-l), #000 var(--sweep-l)); }
+/* ореол: та сама форма, колір, розмиття; додається світлом (plus-lighter) */
+.glow { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: plus-lighter; }
+.glow.tight { filter: blur(6px); opacity: .45; }
+.glow.wide { filter: blur(24px); opacity: .18; }
+.glow .fx-brake { background: #ff2020; }
+.glow .fx-turn-r, .glow .fx-turn-l { background: #ffa51e; }
+.core-hot.fx-turn-r, .core-hot.fx-turn-l { background: #fff4d6; mix-blend-mode: plus-lighter; }
+.hero-photo .core-hot { --hot: .22; }
+/* відсвіт на фарбі під ліхтарями */
+.spill { position: absolute; width: 17%; height: 2.2%; border-radius: 50%; opacity: 0; pointer-events: none; mix-blend-mode: plus-lighter; filter: blur(6px); }
+.spill-l { left: 14.2%; top: 52.2%; } .spill-r { left: 66.2%; top: 52.8%; }
+/* відсвіт повороту на фарбі: шар на все фото з тією ж маскою пробігу, тож світиться лише під сегментами, що вже горять */
+.spill-wrap { position: absolute; inset: 0; pointer-events: none; filter: blur(6px); mix-blend-mode: plus-lighter; }
+.fx-spill-r { background: radial-gradient(ellipse 8.5% 1.3% at 74.7% 53.3%, rgba(255,138,30,.3), transparent);
+  -webkit-mask-image: linear-gradient(to right, #000 var(--sweep-r), transparent var(--sweep-r)); mask-image: linear-gradient(to right, #000 var(--sweep-r), transparent var(--sweep-r)); }
+.fx-spill-l { background: radial-gradient(ellipse 9.5% 1.3% at 22.7% 52.8%, rgba(255,138,30,.3), transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent var(--sweep-l), #000 var(--sweep-l)); mask-image: linear-gradient(to right, transparent var(--sweep-l), #000 var(--sweep-l)); }
+.spill.brk { background: rgba(255,32,32,.22); }
+/* «Привітання»: машина в напівтемряві, ліхтарі загоряються від центру назовні в 3 кроки */
+@property --wel { syntax: "<percentage>"; inherits: false; initial-value: 37%; }
+.fx-welcome { background: url(media/bmw-tail.jpg) 0 0 / 100% 100%; -webkit-mask-composite: source-in; mask-composite: intersect;
+  -webkit-mask-image: url(media/m-all.png), linear-gradient(to right, transparent calc(49.5% - var(--wel)), #000 calc(49.5% - var(--wel)), #000 calc(49.5% + var(--wel)), transparent calc(49.5% + var(--wel)));
+  mask-image: url(media/m-all.png), linear-gradient(to right, transparent calc(49.5% - var(--wel)), #000 calc(49.5% - var(--wel)), #000 calc(49.5% + var(--wel)), transparent calc(49.5% + var(--wel))); }
+.hero-photo.is-on .fx-welcome { opacity: 1; }
+.hero-photo.igniting .fx-welcome { animation: welcome 240ms cubic-bezier(.2,0,0,1) both; }
+@keyframes welcome { 0% { --wel: 16%; animation-timing-function: steps(3, start); } 100% { --wel: 37%; } }
+
+/* Стоп: вмикається миттєво (LED), гасне за 120 мс */
+.hero-photo .fx-brake, .hero-photo .spill.brk { transition: opacity 120ms linear; }
+.hero-photo.brake .fx-brake, .hero-photo.brake .spill.brk { opacity: 1; transition-duration: 20ms; }
+/* Поворот: 90 спалахів/хв (667 мс), сегменти загоряються сходинками за ~180 мс від центру авто
+   назовні, тримаються, потім гаснуть разом. Аварійка — обидва боки в одній фазі */
+.hero-photo.turn-r .fx-turn-r, .hero-photo.hazard .fx-turn-r { animation: turn-r 667ms infinite; }
+.hero-photo.hazard .fx-turn-l { animation: turn-l 667ms infinite; }
+.hero-photo.turn-r .fx-spill-r, .hero-photo.hazard .fx-spill-r { animation: turn-r 667ms infinite; }
+.hero-photo.hazard .fx-spill-l { animation: turn-l 667ms infinite; }
+.hero-photo .core-hot { opacity: 0; }
+.hero-photo.turn-r .core-hot.fx-turn-r, .hero-photo.hazard .core-hot { animation-name: turn-hot-r; }
+.hero-photo.hazard .core-hot.fx-turn-l { animation-name: turn-hot-l; }
+@keyframes turn-r {
+  0% { --sweep-r: 66.2%; opacity: 1; animation-timing-function: steps(8, end); }
+  27% { --sweep-r: 83.3%; opacity: 1; animation-timing-function: steps(1, end); }
+  50% { --sweep-r: 83.3%; opacity: 1; } 50.1%, 100% { --sweep-r: 83.3%; opacity: 0; } }
+@keyframes turn-l {
+  0% { --sweep-l: 32.4%; opacity: 1; animation-timing-function: steps(8, end); }
+  27% { --sweep-l: 13.1%; opacity: 1; animation-timing-function: steps(1, end); }
+  50% { --sweep-l: 13.1%; opacity: 1; } 50.1%, 100% { --sweep-l: 13.1%; opacity: 0; } }
+@keyframes turn-hot-r {
+  0% { --sweep-r: 66.2%; opacity: .22; animation-timing-function: steps(8, end); }
+  27% { --sweep-r: 83.3%; opacity: .22; animation-timing-function: steps(1, end); }
+  50% { --sweep-r: 83.3%; opacity: .22; } 50.1%, 100% { --sweep-r: 83.3%; opacity: 0; } }
+@keyframes turn-hot-l {
+  0% { --sweep-l: 32.4%; opacity: .22; animation-timing-function: steps(8, end); }
+  27% { --sweep-l: 13.1%; opacity: .22; animation-timing-function: steps(1, end); }
+  50% { --sweep-l: 13.1%; opacity: .22; } 50.1%, 100% { --sweep-l: 13.1%; opacity: 0; } }
+.hero-photo.paused .fx, .hero-photo.paused .spill, .hero-photo.paused .light-ctl i { animation-play-state: paused; }
+
+.light-ctl { position: absolute; left: 12px; right: 12px; bottom: 12px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 4px;
+  border-radius: 12px; background: rgba(10,10,11,.72); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.1); }
+.light-ctl button { min-height: 42px; border: 0; border-radius: 9px; background: transparent; color: rgba(255,255,255,.72); cursor: pointer;
+  font: 500 13px/1 Oswald, sans-serif; letter-spacing: .06em; text-transform: uppercase; display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  transition: background-color .18s var(--ease), color .18s var(--ease), transform .2s var(--ease); touch-action: manipulation; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+.light-ctl button:hover { color: #fff; background: rgba(255,255,255,.06); }
+.light-ctl button:active { transform: scale(.96); transition-duration: .08s; }
+.light-ctl button[aria-pressed="true"] { background: rgba(255,255,255,.12); color: #fff; }
+.light-ctl button:focus-visible { outline-offset: -2px; }
+.light-ctl i { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.25); flex: none; }
+.light-ctl [data-mode="tail"][aria-pressed="true"] i, .light-ctl [data-mode="brake"][aria-pressed="true"] i { background: #ff3b3b; box-shadow: 0 0 8px #ff3b3b; }
+.light-ctl [data-mode="turn"][aria-pressed="true"] i, .light-ctl [data-mode="hazard"][aria-pressed="true"] i { background: var(--amber); box-shadow: 0 0 8px var(--amber); animation: dot-blink 667ms infinite; }
+@keyframes dot-blink { 0% { opacity: 1; animation-timing-function: steps(1, end); } 50.1%, 100% { opacity: .2; } }
+
+/* LED-смуга: один раз пробігає, як динамічний поворот, коли фінальний блок на екрані */
+.led-strip { display: flex; gap: 4px; height: 6px; overflow: hidden; }
+.led-strip i { flex: 1 1 0; min-width: 6px; border-radius: 3px; background: var(--led-off, rgba(255,255,255,.07)); }
+html[data-theme="light"] .led-strip { --led-off: rgba(40,35,20,.1); }
+.led-strip.run i { animation: led-run 620ms linear both; animation-delay: calc(var(--i) * 350ms / var(--n)); }
+@keyframes led-run { 0% { background: var(--led-off, rgba(255,255,255,.07)); box-shadow: none; animation-timing-function: steps(1, end); }
+  1%, 52% { background: var(--amber); box-shadow: 0 0 8px rgba(255,162,26,.6); animation-timing-function: ease-out; }
+  100% { background: var(--led-off, rgba(255,255,255,.07)); box-shadow: none; } }
+
+/* Огник по контуру головної кнопки: стартує після «привітання», три оберти й зупиняється */
+@property --ring-a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+@keyframes ring-spin { 0% { opacity: 0; } 8%, 92% { opacity: 1; } 100% { --ring-a: 360deg; opacity: 0; } }
+.btn-ring { position: relative; isolation: isolate; }
+.btn-ring::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px; pointer-events: none; opacity: 0;
+  background: conic-gradient(from var(--ring-a), transparent 0 64%, rgba(255,220,200,.45) 84%, rgba(255,220,200,.7) 88%, transparent 89%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude;
+  animation: ring-spin 6s linear 1.5s 3; }
+.btn-ring:hover { box-shadow: 0 0 0 4px rgba(255,59,59,.18); }
+
+/* Слово «помічають» видно одразу; разом з ліхтарями лише набирає легкий ореол */
+.hero h1 .accent { transition: text-shadow .3s ease-out; }
+.hero.lit h1 .accent { text-shadow: 0 0 28px rgba(255,59,59,.3); }
+
+/* ---------- цифри */
+.facts { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--border); }
+.fact { padding: 32px 24px; border-right: 1px solid var(--border); min-width: 0; }
+.fact:last-child { border-right: 0; }
+.fact b { display: block; font: 600 clamp(26px, 3vw, 38px)/1.1 Oswald, sans-serif; text-transform: uppercase; }
+.fact span { color: var(--muted); font-size: 14px; }
+
+/* ---------- секції */
+.section { padding: 96px 0; }
+.section + .section { padding-top: 0; }
+.section-head { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 40px; }
+.section h2 { margin: 0; font-size: clamp(34px, 4.4vw, 56px); line-height: 1; text-transform: uppercase; }
+.section-head p { margin: 0; color: var(--muted); max-width: 30em; }
+
+/* послуги: зверху картинка напрямку */
+.services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.svc { display: flex; flex-direction: column; border-radius: var(--radius); background: var(--card); border: 1px solid var(--border); overflow: hidden; transition: border-color .2s var(--ease); }
+.svc:hover { border-color: rgba(255,59,59,.45); }
+.svc-media { aspect-ratio: 16 / 10; background: #0d0d0f; overflow: hidden; position: relative; }
+.svc-media img, .svc-media svg { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s var(--ease), filter .6s var(--ease); }
+.svc-media img { filter: brightness(.75); }
+.svc:hover .svc-media img { transform: scale(1.04); filter: brightness(1); }
+.svc-body { padding: 24px 26px 26px; display: flex; flex-direction: column; flex: 1; }
+.svc h3 { margin: 0 0 10px; font-size: 22px; line-height: 1.2; text-transform: uppercase; letter-spacing: .02em; }
+.svc p { margin: 0 0 22px; color: var(--muted); font-size: 15px; }
+.svc a { margin-top: auto; align-self: flex-start; color: var(--text); font-weight: 600; font-size: 14px; text-decoration: none; display: inline-flex; gap: 8px; align-items: center; }
+.svc a svg { width: 16px; height: 16px; color: var(--red); transition: transform .18s var(--ease); }
+.svc a:hover svg { transform: translateX(4px); }
+/* Bi-LED: світловий пучок із чіткою межею світлотіні */
+.beam-cut { transition: opacity .6s var(--ease); }
+.svc:hover .beam-glow { opacity: 1; }
+
+/* роботи */
+.works { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.work { margin: 0; position: relative; border-radius: var(--radius); overflow: hidden; background: #000; border: 1px solid var(--border); aspect-ratio: 9 / 16; }
+.work video { width: 100%; height: 100%; object-fit: cover; }
+.work-play { position: absolute; inset: 0; display: grid; place-items: center; background: linear-gradient(to top, rgba(0,0,0,.72), transparent 42%); border: 0; color: #fff; cursor: pointer; padding: 0; }
+.work-play:focus-visible { outline-offset: -4px; border-radius: var(--radius); }
+.work-play span { width: 48px; height: 48px; border-radius: 50%; background: rgba(10,10,11,.45); border: 1px solid rgba(255,255,255,.35); backdrop-filter: blur(6px); display: grid; place-items: center; transition: transform .15s var(--ease), background-color .18s var(--ease); }
+.work-play:hover span { background: var(--red-btn); border-color: transparent; }
+.work-play:active span { transform: scale(.9); }
+.work-play svg { width: 18px; height: 18px; margin-left: 2px; }
+.work figcaption { position: absolute; left: 14px; right: 14px; bottom: 12px; color: #fff; font: 600 15px/1.3 Oswald, sans-serif; letter-spacing: .04em; text-transform: uppercase; pointer-events: none; transition: opacity .2s; }
+.work.playing .work-play, .work.playing figcaption { opacity: 0; pointer-events: none; }
+.work-insta { display: flex; flex-direction: column; justify-content: flex-end; gap: 14px; padding: 22px; text-decoration: none; aspect-ratio: 9 / 16; border-radius: var(--radius);
+  background: linear-gradient(160deg, #2a0f11, var(--card) 60%); border: 1px solid var(--border); transition: border-color .2s var(--ease); }
+html[data-theme="light"] .work-insta { background: linear-gradient(160deg, #f1d6d2, var(--card) 60%); }
+.work-insta:hover { border-color: rgba(255,59,59,.45); }
+.work-insta svg { width: 34px; height: 34px; color: var(--red); }
+.work-insta b { font: 600 24px/1.1 Oswald, sans-serif; text-transform: uppercase; }
+.work-insta span { color: var(--muted); font-size: 14px; }
+
+/* етапи */
+.how-head { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; margin-bottom: 44px; }
+.how-head p { margin: 0 0 8px; color: var(--muted); }
+.steps-wrap { position: relative; }
+.steps-led { margin-bottom: 28px; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+.step { display: flex; flex-direction: column; gap: 12px; }
+.step-top { display: flex; align-items: center; gap: 12px; }
+.step-n { font: 600 14px/1 Oswald, sans-serif; color: var(--red); letter-spacing: .06em; }
+.step-ic { width: 44px; height: 44px; border-radius: 10px; border: 1px solid rgba(255,59,59,.35); background: var(--red-soft); color: var(--red); display: grid; place-items: center; }
+.step-ic svg { width: 20px; height: 20px; }
+.step h3 { margin: 0; font: 600 18px/1.25 Oswald, sans-serif; text-transform: uppercase; letter-spacing: .03em; }
+.step p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
+
+/* питання */
+.faq { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; align-items: start; }
+.faq details { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-s); transition: border-color .2s; }
+.faq details[open] { border-color: rgba(255,59,59,.45); }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 22px; font-weight: 600; border-radius: var(--radius-s); transition: background-color .18s var(--ease); }
+.faq summary:hover { background: var(--card-hi); }
+.faq summary:focus-visible { outline-offset: -2px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary svg { width: 20px; height: 20px; color: var(--red); flex: none; transition: transform .22s var(--ease); }
+.faq details[open] summary svg { transform: rotate(45deg); }
+.faq .ans { padding: 0 22px 20px; color: var(--muted); }
+.faq .ans p { margin: 0; }
+
+/* контакти */
+.contact { display: grid; grid-template-columns: 1fr 1.25fr; gap: 16px; }
+.contact-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 22px; }
+.contact-row { display: grid; grid-template-columns: 22px 1fr; gap: 14px; }
+.contact-row svg { width: 22px; height: 22px; color: var(--red); margin-top: 2px; }
+.contact-row b { display: block; font-weight: 600; }
+.contact-row span { color: var(--muted); font-size: 15px; }
+.contact-actions { display: grid; gap: 10px; margin-top: auto; }
+.alt-contact { margin: 0; color: var(--muted); font-size: 14px; }
+.map { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); min-height: 400px; background: var(--card); }
+.map iframe { width: 100%; height: 100%; min-height: 400px; border: 0; display: block; }
+html:not([data-theme="light"]) .map iframe { filter: invert(.9) hue-rotate(180deg) saturate(.6) brightness(.95); }
+
+/* фінальний заклик: LED-смуга — його верхній край */
+.closing { position: relative; overflow: hidden; border-radius: var(--radius); padding: 52px 48px 48px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
+  background: linear-gradient(120deg, #2a0f11, var(--card) 70%); border: 1px solid rgba(255,59,59,.3); }
+html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2, var(--card) 70%); }
+.closing .led-strip { position: absolute; left: 0; right: 0; top: 0; height: 4px; gap: 3px; }
+.closing .led-strip i { border-radius: 0 0 2px 2px; }
+.closing h2 { margin: 0 0 10px; }
+.closing p { margin: 0; color: var(--muted); }
+.closing .btns { display: flex; flex-direction: column; gap: 12px; align-items: stretch; }
+
+.site-footer { border-top: 1px solid var(--border); padding: 32px 0 40px; color: var(--muted); font-size: 14px; }
+.footer-in { display: flex; flex-wrap: wrap; gap: 16px 32px; justify-content: space-between; align-items: center; }
+.footer-in nav { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-in a { text-decoration: none; transition: color .18s var(--ease); }
+.footer-in a:hover { color: var(--text); }
+
+/* мобільна нижня панель */
+.tabbar { display: none; }
+
+@media (max-width: 1080px) {
+  .nav { display: none; }
+  .header-loc .addr { display: none; }
+}
+@media (max-width: 900px) {
+  :root { --gutter: 16px; --header-h: 64px; }
+  .hero-in { grid-template-columns: 1fr; gap: 32px; padding-top: 44px; padding-bottom: 64px; }
+  .hero-photo { aspect-ratio: 4 / 3; --stage-shift: -19.9%; }
+  .facts { grid-template-columns: repeat(2, 1fr); }
+  .fact { padding: 24px 12px; }
+  .fact:nth-child(2) { border-right: 0; }
+  .fact:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+  .services { grid-template-columns: 1fr; }
+  .works { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .how-head, .contact { grid-template-columns: 1fr; gap: 20px; }
+  .steps { grid-template-columns: 1fr; gap: 0; }
+  .steps-led { display: none; }
+  .step { display: grid; grid-template-columns: 44px 1fr; gap: 0 16px; position: relative; padding-bottom: 22px; }
+  .step:last-child { padding-bottom: 0; }
+  .step:not(:last-child)::after { content: ""; position: absolute; left: 21px; top: 50px; bottom: 6px; width: 2px; background: var(--border); }
+  .step-top { grid-row: span 2; flex-direction: column; align-items: center; gap: 6px; }
+  .step-n { order: 2; display: none; }
+  .step h3 { margin-top: 10px; }
+  .faq { grid-template-columns: 1fr; }
+  .section { padding: 64px 0; }
+  .section-head { flex-direction: column; align-items: start; gap: 12px; margin-bottom: 28px; }
+  .closing { grid-template-columns: 1fr; padding: 36px 24px 28px; }
+  .header-cta { display: none; }
+  .tabbar { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+    padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(10,10,11,.96); border-top: 1px solid var(--border); }
+  html[data-theme="light"] .tabbar { background: rgba(232,230,222,.98); }
+  .tabbar .btn { min-height: 48px; padding: 0 12px; font-size: 14px; }
+  body { padding-bottom: 76px; }
+}
+@media (max-width: 560px) {
+  .header-in { gap: 12px; }
+  .header-loc { font-size: 12px; }
+  .header-loc .map-hint, .header-loc .sep { display: none; }
+  .header-loc em { display: block; font-weight: 400; color: var(--muted); }
+  .logo-word { font-size: 19px; }
+  .logo-mark { width: 34px; height: 34px; }
+  .hero-actions .btn { width: 100%; min-width: 0; }
+  .contact-card { padding: 24px; }
+  .light-ctl { left: 8px; right: 8px; bottom: 8px; gap: 2px; padding: 3px; }
+  .light-ctl button { font-size: 12px; letter-spacing: .03em; gap: 5px; min-height: 44px; }
+  .light-ctl i { width: 6px; height: 6px; }
+  .work-insta b { font-size: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
+  .btn-ring::before, .light-ctl i { animation: none !important; }
+  /* без руху: поворот світить рівно, без пробігу й миготіння */
+  .hero-photo.turn-r .fx-turn-r, .hero-photo.hazard .fx-turn-r, .hero-photo.hazard .fx-turn-l { animation: none !important; opacity: 1; }
+  .hero-photo.turn-r .fx-spill-r, .hero-photo.hazard .fx-spill-r, .hero-photo.hazard .fx-spill-l { animation: none !important; opacity: 1; }
+  .hero-photo .core-hot { animation: none !important; opacity: 0 !important; }
+  .hero-photo.igniting .fx-welcome { animation: none !important; }
+  .led-strip.run i { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 2 4 13.5h6.5L9.5 22 20 9.5h-6.6L13.5 2Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M21 3 3 10.5l7 2.5 2.5 7L21 3Zm-11 10 5-5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15a1 1 0 0 0 1.5.86l12.4-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4 5h16v11H9l-5 4V5Z"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 8h4l2-3h6l2 3h4v11H3z"/><circle cx="12" cy="13" r="3.5"/></g></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></g></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a4 4 0 0 0 5 5L21 13l-1.3 1.3-1.4-1.4-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9-1.4-1.4L15.2 7l-.5-.7ZM14.7 6.3 17 4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.8 2.8L16 9.5"/></g></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+    <symbol id="i-insta" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="logo" href="#top" aria-label="Volt Master, на початок">
+      <span class="logo-mark"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span>
+      <span class="logo-word">Volt<b>Master</b></span>
+    </a>
+    <nav class="nav" aria-label="Розділи">
+      <a href="#services">Послуги</a>
+      <a href="#works">Роботи</a>
+      <a href="#how">Як працюємо</a>
+      <a href="#faq">Запитання</a>
+      <a href="#contacts">Контакти</a>
+    </nav>
+    <a class="header-loc" href="https://maps.app.goo.gl/CvHZXUUz2emazCJp6" target="_blank" rel="noopener" aria-label="Корнин, вулиця Центральна, 41: відкрити в Google Maps">
+      <svg aria-hidden="true"><use href="#i-pin"/></svg>
+      <div><strong>Корнин<span class="sep">, </span><em>біля Рівного</em></strong><span class="addr">вул. Центральна, 41 · </span><span class="map-hint">На мапі</span></div>
+    </a>
+    <a class="btn btn-red header-cta" href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Записатися</a>
+    <button class="theme-toggle" type="button" aria-label="Світла тема" aria-pressed="false">
+      <svg class="sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="moon" aria-hidden="true"><use href="#i-moon"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-in">
+      <div>
+        <h1>Світло, яке<br><span class="accent">помічають</span></h1>
+        <p>Переробка американських ліхтарів, <strong style="white-space:nowrap">Bi-LED-лінзи</strong>, тюнінг і ремонт фар.</p>
+        <p>Працюємо в Корнині біля Рівного, а фари й ліхтарі приймаємо <strong>Новою поштою з усієї України</strong>.</p>
+        <div class="hero-actions">
+          <a class="btn btn-red btn-ring" href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Записатися в Telegram</a>
+          <a class="btn btn-ghost" href="#works">Наші роботи</a>
+        </div>
+        <p class="hero-note">Відкриється Telegram-бот: оберіть послугу й зручний день, майстер передзвонить. Немає Telegram? <a class="link" href="https://ig.me/m/voltmaster.rv" target="_blank" rel="noopener">Напишіть в Instagram</a></p>
+      </div>
+      <figure class="hero-photo is-off">
+        <div class="hero-stage">
+          <img src="media/bmw-tail.jpg" srcset="media/bmw-tail-640.jpg 640w, media/bmw-tail.jpg 1180w" sizes="(max-width: 900px) 100vw, 600px"
+            alt="BMW M340i із задніми ліхтарями після роботи Volt Master" width="1180" height="1304" fetchpriority="high">
+          <div aria-hidden="true">
+            <i class="fx fx-welcome"></i>
+            <i class="fx fx-photo fx-brake"></i>
+            <i class="fx fx-photo fx-turn-l"></i><i class="fx fx-photo fx-turn-r"></i>
+            <i class="fx core-hot fx-turn-l"></i><i class="fx core-hot fx-turn-r"></i>
+            <div class="glow tight"><i class="fx fx-brake"></i><i class="fx fx-turn-l"></i><i class="fx fx-turn-r"></i></div>
+            <div class="glow wide"><i class="fx fx-brake"></i><i class="fx fx-turn-l"></i><i class="fx fx-turn-r"></i></div>
+            <div class="spill-wrap"><i class="fx fx-spill-l"></i><i class="fx fx-spill-r"></i></div>
+            <span class="spill spill-l brk"></span><span class="spill spill-r brk"></span>
+          </div>
+        </div>
+        <figcaption>BMW M340i <span>· потисніть кнопки, «Стоп» можна тримати</span></figcaption>
+        <div class="light-ctl" role="group" aria-label="Увімкнути світло на фото">
+          <button type="button" data-mode="tail" aria-pressed="true"><i></i>Габарити</button>
+          <button type="button" data-mode="brake" aria-pressed="false" aria-label="Стоп, натисніть і тримайте"><i></i>Стоп</button>
+          <button type="button" data-mode="turn" aria-pressed="false"><i></i>Поворот</button>
+          <button type="button" data-mode="hazard" aria-pressed="false"><i></i>Аварійка</button>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="facts">
+      <div class="fact"><b>1 день</b><span>на більшість робіт</span></div>
+      <div class="fact"><b>від 1 року</b><span>гарантія на роботу</span></div>
+      <div class="fact"><b>вся Україна</b><span>приймаємо Новою поштою</span></div>
+      <div class="fact"><b>за фото</b><span>називаємо ціну</span></div>
+    </div>
+  </div>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Що <span class="accent">робимо</span></h2>
+        <p>Ціна залежить від марки, моделі, року й комплектації авто. Надішліть фото, і майстер порахує.</p>
+      </div>
+      <div class="services">
+        <article class="svc">
+          <div class="svc-media"><img src="media/work-03.jpg" alt="Chrysler 200 із переробленими задніми ліхтарями" loading="lazy" width="540" height="960" style="object-position:50% 52%"></div>
+          <div class="svc-body">
+            <h3>Переробка американських ліхтарів</h3>
+            <p>В американських авто поворот часто червоний і горить разом зі стопом. Робимо окремий жовтий поворот, як вимагають європейські норми.</p>
+            <a href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener">Записатися в Telegram <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </article>
+        <article class="svc">
+          <div class="svc-media">
+            <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Схема: пучок Bi-LED-лінзи з чіткою межею світлотіні">
+              <defs>
+                <linearGradient id="road" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b0b0d"/><stop offset="1" stop-color="#17171b"/></linearGradient>
+                <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset=".55" stop-color="#e9f1ff" stop-opacity=".45"/><stop offset="1" stop-color="#cfe0ff" stop-opacity=".08"/></linearGradient>
+                <filter id="soft"><feGaussianBlur stdDeviation="6"/></filter>
+                <radialGradient id="lensg"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#dfe9ff"/><stop offset="1" stop-color="#5a7bd6"/></radialGradient>
+              </defs>
+              <rect width="400" height="250" fill="url(#road)"/>
+              <path d="M0 150H400" stroke="rgba(255,255,255,.06)"/>
+              <g class="beam-glow" opacity=".75" filter="url(#soft)"><path d="M70 128 L230 122 L400 82 L400 250 L70 160Z" fill="url(#beam)"/></g>
+              <path class="beam-cut" d="M70 128 L230 122 L400 82 L400 250 L70 160Z" fill="url(#beam)" opacity=".55"/>
+              <path d="M70 128 L230 122 L400 82" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="1.5"/>
+              <circle cx="58" cy="140" r="26" fill="#0d0d10" stroke="#5a7bd6" stroke-width="3"/>
+              <circle cx="58" cy="140" r="17" fill="url(#lensg)"/>
+              <text x="236" y="112" fill="rgba(255,255,255,.55)" font-family="Inter, sans-serif" font-size="11">межа світлотіні</text>
+            </svg>
+          </div>
+          <div class="svc-body">
+            <h3>Bi-LED-лінзи</h3>
+            <p>Ставимо Bi-LED-лінзи у фари: яскраве світло з чіткою межею світлотіні. Після регулювання не сліпить зустрічних.</p>
+            <a href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener">Записатися в Telegram <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </article>
+        <article class="svc">
+          <div class="svc-media"><img src="media/work-06.jpg" alt="Hyundai Ioniq 5 із піксельними задніми ліхтарями" loading="lazy" width="540" height="960" style="object-position:50% 40%"></div>
+          <div class="svc-body">
+            <h3>Тюнінг і ремонт фар та задніх ліхтарів</h3>
+            <p>Від тріснутого корпусу й мертвих діодів до повністю нового вигляду світла.</p>
+            <a href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener">Записатися в Telegram <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="works">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Наші <span class="accent">роботи</span></h2>
+        <p>Відео з авто, що побували в нас. Натисніть, щоб подивитися зі звуком.</p>
+      </div>
+      <div class="works">
+        <figure class="work"><video src="media/work-06.mp4" poster="media/work-06.jpg" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Hyundai Ioniq 5"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Hyundai Ioniq 5</figcaption></figure>
+        <figure class="work"><video src="media/work-02.mp4" poster="media/work-02.jpg" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Audi"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Audi</figcaption></figure>
+        <figure class="work"><video src="media/work-07.mp4" poster="media/work-07.jpg" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Range Rover Velar"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Range Rover Velar</figcaption></figure>
+        <figure class="work"><video src="media/work-01.mp4" poster="media/work-01.jpg" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Chevrolet"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Chevrolet</figcaption></figure>
+        <figure class="work"><video src="media/work-04.mp4" poster="media/work-04.jpg" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Toyota"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Toyota</figcaption></figure>
+        <figure class="work"><video src="media/work-03.mp4" poster="media/work-03.jpg" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Chrysler 200"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Chrysler 200</figcaption></figure>
+        <figure class="work"><video src="media/work-08.mp4" poster="media/work-08.jpg" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Range Rover Velar, стоп-сигнали"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Range Rover Velar</figcaption></figure>
+        <a class="work-insta" href="https://www.instagram.com/voltmaster.rv/" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-insta"/></svg>
+          <b>Більше робіт в Instagram</b>
+          <span>@voltmaster.rv</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="how-head">
+        <h2>Як ми <span class="accent">працюємо</span></h2>
+        <div>
+          <p>Можна приїхати особисто або надіслати фари чи ліхтарі Новою поштою. Якщо не поспішаєте й ліхтарі можуть полежати в нас тиждень чи довше, зробимо зі знижкою.</p>
+        </div>
+      </div>
+      <div class="steps-wrap">
+        <div class="led-strip steps-led" data-static aria-hidden="true"></div>
+        <ol class="steps">
+          <li class="step"><div class="step-top"><span class="step-ic"><svg aria-hidden="true"><use href="#i-chat"/></svg></span><span class="step-n">01</span></div><h3>Заявка</h3><p>У Telegram-боті: послуга, авто, місто, наскільки терміново й зручний день. Майстер передзвонить і підтвердить</p></li>
+          <li class="step"><div class="step-top"><span class="step-ic"><svg aria-hidden="true"><use href="#i-camera"/></svg></span><span class="step-n">02</span></div><h3>Оцінка за фото</h3><p>Майстер дивиться фото й називає ціну</p></li>
+          <li class="step"><div class="step-top"><span class="step-ic"><svg aria-hidden="true"><use href="#i-box"/></svg></span><span class="step-n">03</span></div><h3>Приїзд або пошта</h3><p>Приїжджаєте в Корнин або надсилаєте фари й ліхтарі</p></li>
+          <li class="step"><div class="step-top"><span class="step-ic"><svg aria-hidden="true"><use href="#i-wrench"/></svg></span><span class="step-n">04</span></div><h3>Робота</h3><p>Здебільшого за 1 день. Коротку роботу можна почекати на місці</p></li>
+          <li class="step"><div class="step-top"><span class="step-ic"><svg aria-hidden="true"><use href="#i-check"/></svg></span><span class="step-n">05</span></div><h3>Готово</h3><p>Показуємо, як світить, і даємо гарантію щонайменше рік</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head"><h2>Часті <span class="accent">запитання</span></h2></div>
+      <div class="faq">
+        <details><summary>Яка ціна?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="ans"><p>Ціна залежить від марки, моделі, року й комплектації авто. Напишіть нам або надішліть фото в бот, і майстер порахує.</p></div></details>
+        <details><summary>Скільки триває робота?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="ans"><p>Здебільшого 1 день. Точний час майстер назве, коли побачить авто.</p></div></details>
+        <details><summary>Чи можна почекати на місці?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="ans"><p>Так, на коротких роботах можна дочекатися. Про довші попередимо заздалегідь.</p></div></details>
+        <details><summary>Чи є гарантія?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="ans"><p>Так, гарантія на роботу щонайменше рік.</p></div></details>
+        <details><summary>Як можна оплатити?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="ans"><p>Готівкою, карткою або безготівково на рахунок ФОП.</p></div></details>
+        <details><summary>Чи можна надіслати поштою?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="ans"><p>Так, приймаємо фари й ліхтарі Новою поштою з усієї України. Залиште заявку, і майстер напише, куди надсилати.</p></div></details>
+        <details><summary>Чи буває знижка?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="ans"><p>Так, якщо ліхтарі можуть полежати в нас тиждень чи довше, зробимо дешевше. Деталі уточнить майстер.</p></div></details>
+        <details><summary>У мене немає Telegram<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="ans"><p>Напишіть нам в <a class="link" href="https://ig.me/m/voltmaster.rv" target="_blank" rel="noopener">Instagram Direct</a>, відповімо там.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contacts">
+    <div class="wrap">
+      <div class="section-head"><h2>Як нас <span class="accent">знайти</span></h2></div>
+      <div class="contact">
+        <div class="contact-card">
+          <div class="contact-row"><svg aria-hidden="true"><use href="#i-pin"/></svg><div><b>Корнин, вул. Центральна, 41</b><span>Біля Рівного</span></div></div>
+          <div class="contact-row"><svg aria-hidden="true"><use href="#i-clock"/></svg><div><b>пн–пт, 9:00–20:00</b><span>Вихідні: субота й неділя</span></div></div>
+          <div class="contact-actions">
+            <a class="btn btn-red" href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Записатися в Telegram</a>
+            <a class="btn btn-ghost" href="https://maps.app.goo.gl/CvHZXUUz2emazCJp6" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Маршрут і відгуки в Google</a>
+            <p class="alt-contact">Немає Telegram? <a class="link" href="https://ig.me/m/voltmaster.rv" target="_blank" rel="noopener">Напишіть в Instagram</a></p>
+          </div>
+        </div>
+        <div class="map">
+          <iframe title="Volt Master на мапі" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=50.5596886,26.2871954&z=15&hl=uk&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="closing">
+        <div class="led-strip" aria-hidden="true"></div>
+        <div>
+          <h2>Надішліть фото <span class="accent">фар чи ліхтарів</span></h2>
+          <p>Майстер подивиться й назве ціну та строки.</p>
+        </div>
+        <div class="btns">
+          <a class="btn btn-red" href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Надіслати фото в Telegram</a>
+          <a class="btn btn-ghost" href="https://ig.me/m/voltmaster.rv" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-insta"/></svg>Або в Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-in">
+    <span>© Volt Master, Корнин, вул. Центральна, 41</span>
+    <nav aria-label="Посилання">
+      <a href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://www.instagram.com/voltmaster.rv/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://maps.app.goo.gl/CvHZXUUz2emazCJp6" target="_blank" rel="noopener">Google Maps</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="tabbar">
+  <a class="btn btn-red" href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Telegram</a>
+  <a class="btn btn-ghost" href="https://maps.app.goo.gl/CvHZXUUz2emazCJp6" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Маршрут</a>
+</div>
+
+<script>
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasIO = 'IntersectionObserver' in window;
+
+  // Тема: перемикач як на goldauto.online, вибір пам'ятаємо
+  var toggle = document.querySelector('.theme-toggle');
+  function syncToggle() { toggle.setAttribute('aria-pressed', String(document.documentElement.dataset.theme === 'light')); }
+  syncToggle();
+  toggle.addEventListener('click', function () {
+    var light = document.documentElement.dataset.theme !== 'light';
+    if (light) document.documentElement.dataset.theme = 'light';
+    else delete document.documentElement.dataset.theme;
+    try { localStorage.setItem('vm-theme', light ? 'light' : ''); } catch (e) {}
+    syncToggle();
+  });
+
+  // LED-смуга: сегменти за шириною; пробігає один раз лише фінальна, інші статичні
+  var strips = Array.prototype.slice.call(document.querySelectorAll('.led-strip'));
+  strips.forEach(function (s) {
+    var w = s.getBoundingClientRect().width || s.parentNode.getBoundingClientRect().width;
+    var n = Math.max(14, Math.floor(w / 16));
+    s.style.setProperty('--n', n);
+    for (var k = 0; k < n; k++) { var i = document.createElement('i'); i.style.setProperty('--i', k); s.appendChild(i); }
+  });
+  if (hasIO && !reduced) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('run'); io.unobserve(e.target); } });
+    }, { threshold: 1 });
+    strips.forEach(function (s) { if (!s.hasAttribute('data-static')) io.observe(s); });
+  }
+
+  // Світло на фото. Габарити / поворот / аварійка — режими; «Стоп» — як педаль: горить, поки тримаєте
+  var photo = document.querySelector('.hero-photo'), hero = document.querySelector('.hero');
+  var ctl = Array.prototype.slice.call(document.querySelectorAll('.light-ctl button'));
+  var mode = 'tail', braking = false, brakeTimer = null, pressedAt = 0, lit = false;
+  function syncClocks() {
+    // лампи й крапки на кнопках блимають від одного годинника, аварійка — обидва боки в фазі
+    if (!photo.getAnimations || !document.timeline) return;
+    requestAnimationFrame(function () {
+      var t = document.timeline.currentTime;
+      photo.getAnimations({ subtree: true }).forEach(function (a) {
+        if (/^(turn|dot-blink)/.test(a.animationName || '')) a.startTime = t;
+      });
+    });
+  }
+  function render() {
+    photo.classList.toggle('turn-r', mode === 'turn');
+    photo.classList.toggle('hazard', mode === 'hazard');
+    photo.classList.toggle('brake', braking);
+    ctl.forEach(function (b) {
+      var m = b.dataset.mode;
+      b.setAttribute('aria-pressed', String(m === 'brake' ? braking : m === mode));
+    });
+  }
+  function setMode(m) { mode = m; render(); syncClocks(); }
+  function wake() { if (!lit) ignite(true); }
+  function brakeOn() { wake(); clearTimeout(brakeTimer); pressedAt = Date.now(); braking = true; render(); }
+  function brakeRelease() {
+    if (!braking) return;
+    // коротке натискання все одно показує стоп хоча б пів секунди
+    brakeTimer = setTimeout(function () { braking = false; render(); }, Math.max(0, 500 - (Date.now() - pressedAt)));
+  }
+  ctl.forEach(function (b) {
+    var m = b.dataset.mode;
+    if (m === 'brake') {
+      b.addEventListener('pointerdown', function (e) { if (e.button === 0 || e.pointerType !== 'mouse') { brakeOn(); try { b.setPointerCapture(e.pointerId); } catch (x) {} } });
+      ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(function (t) { b.addEventListener(t, brakeRelease); });
+      b.addEventListener('keydown', function (e) { if ((e.key === ' ' || e.key === 'Enter') && !e.repeat) { e.preventDefault(); brakeOn(); } });
+      b.addEventListener('keyup', function (e) { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); brakeRelease(); } });
+      b.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+    } else {
+      b.addEventListener('click', function () { wake(); setMode(m !== 'tail' && mode === m ? 'tail' : m); });
+    }
+  });
+  function ignite(now) {
+    if (lit) return;
+    lit = true;
+    photo.classList.add('is-on');
+    hero.classList.add('lit');
+    if (now || reduced) { photo.classList.remove('is-off'); return; }
+    // «привітання»: у напівтемряві ліхтарі загоряються від центру назовні (240 мс), потім світлішає сцена
+    photo.classList.add('igniting');
+    setTimeout(function () { photo.classList.remove('is-off'); }, 240);
+    setTimeout(function () { photo.classList.remove('igniting'); }, 320);
+  }
+  var heroImg = photo.querySelector('img');
+  function start() { setTimeout(function () { ignite(false); }, reduced ? 0 : 350); }
+  if (heroImg.complete) start(); else { heroImg.addEventListener('load', start); heroImg.addEventListener('error', start); }
+  setTimeout(function () { ignite(false); }, 1600);
+  // поза екраном поворот не блимає
+  if (hasIO) new IntersectionObserver(function (es) { photo.classList.toggle('paused', !es[0].isIntersecting); }).observe(photo);
+
+  // Відео робіт: на компʼютері — тихий перегляд при наведенні, по натисканню — зі звуком
+  var works = Array.prototype.slice.call(document.querySelectorAll('.work'));
+  var hover = window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reduced;
+  works.forEach(function (fig) {
+    var btn = fig.querySelector('.work-play'), v = fig.querySelector('video');
+    if (!btn || !v) return;
+    btn.addEventListener('click', function () {
+      works.forEach(function (o) {
+        var ov = o.querySelector('video');
+        if (ov && ov !== v && !ov.paused) ov.pause();
+      });
+      v.muted = false;
+      v.controls = true;
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+      // на телефоні плитка вузька, тож відкриваємо відео на весь екран
+      if (!hover) {
+        if (v.requestFullscreen) v.requestFullscreen().catch(function () {});
+        else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen();
+      }
+    });
+    v.addEventListener('play', function () { if (v.controls) fig.classList.add('playing'); });
+    v.addEventListener('pause', function () { if (!v.controls) fig.classList.remove('playing'); });
+    if (hover) {
+      fig.addEventListener('mouseenter', function () { if (!v.controls) { v.muted = true; var p = v.play(); if (p && p.catch) p.catch(function () {}); } });
+      fig.addEventListener('mouseleave', function () { if (!v.controls) { v.pause(); v.currentTime = 0; } });
+    }
+  });
+</script>
+</body>
+</html>
