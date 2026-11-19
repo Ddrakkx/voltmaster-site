@@ -6,7 +6,7 @@
 <title>Volt Master — фари, задні ліхтарі, Bi-LED-лінзи | Корнин біля Рівного</title>
 <meta name="description" content="Переробка американських ліхтарів, Bi-LED-лінзи, тюнінг і ремонт фар. Корнин біля Рівного, приймаємо Новою поштою з усієї України.">
 <meta name="theme-color" content="#0a0a0b">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-64.png" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="uk_UA">
@@ -37,7 +37,7 @@
   "areaServed": "UA",
   "paymentAccepted": "Cash, Credit Card, Invoice",
   "hasMap": "https://maps.app.goo.gl/CvHZXUUz2emazCJp6",
-  "sameAs": ["https://www.instagram.com/voltmaster.rv/", "https://t.me/voltmaster_demo_bot"]
+  "sameAs": ["https://www.instagram.com/voltmaster.rv/", "https://www.tiktok.com/@voltmaster.rv", "https://www.youtube.com/@voltmaster23", "https://t.me/voltmaster_rv_bot"]
 }
 </script>
 <script>
@@ -102,9 +102,8 @@ a[href^="tel:"] { white-space: nowrap; }
 html[data-theme="light"] .site-header { background: rgba(232,230,222,.94); }
 .header-in { display: flex; align-items: center; gap: 28px; height: var(--header-h); }
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex: none; min-height: 44px; }
-.logo-mark { width: 38px; height: 38px; border-radius: 9px; background: var(--red-btn); color: #fff; display: grid; place-items: center; transition: transform .2s var(--ease); }
-.logo:hover .logo-mark { transform: rotate(-8deg); }
-.logo-mark svg { width: 22px; height: 22px; }
+.logo-img { width: 44px; height: 44px; border-radius: 50%; display: block; flex: none; transition: transform .3s var(--ease); }
+.logo:hover .logo-img { transform: rotate(-12deg); }
 .logo-word { font: 700 22px/1 Inter, sans-serif; letter-spacing: -.02em; }
 .logo-word b { color: var(--red); font-weight: 700; }
 .nav { display: flex; gap: 22px; }
@@ -306,10 +305,12 @@ html[data-theme="light"] .led-strip { --led-off: rgba(40,35,20,.1); }
 .work-insta { display: flex; flex-direction: column; justify-content: flex-end; gap: 14px; padding: 22px; text-decoration: none; aspect-ratio: 9 / 16; border-radius: var(--radius);
   background: linear-gradient(160deg, #2a0f11, var(--card) 60%); border: 1px solid var(--border); transition: border-color .2s var(--ease); }
 html[data-theme="light"] .work-insta { background: linear-gradient(160deg, #f1d6d2, var(--card) 60%); }
-.work-insta:hover { border-color: rgba(255,59,59,.45); }
-.work-insta svg { width: 34px; height: 34px; color: var(--red); }
-.work-insta b { font: 600 24px/1.1 Oswald, sans-serif; text-transform: uppercase; }
-.work-insta span { color: var(--muted); font-size: 14px; }
+.work-insta-logo { width: 96px; height: 96px; border-radius: 50%; margin-bottom: auto; }
+.work-insta b { font: 600 clamp(17px, 5.4vw, 24px)/1.1 Oswald, sans-serif; text-transform: uppercase; overflow-wrap: anywhere; }
+.socials { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.socials a { display: flex; align-items: center; gap: 10px; min-height: 44px; color: var(--text); font-weight: 600; text-decoration: none; transition: color .18s var(--ease); }
+.socials a:hover { color: var(--red); }
+.socials svg { width: 22px; height: 22px; color: var(--red); flex: none; }
 
 /* етапи */
 .how-head { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; margin-bottom: 44px; }
@@ -347,6 +348,7 @@ html[data-theme="light"] .work-insta { background: linear-gradient(160deg, #f1d6
 .contact-row span { color: var(--muted); font-size: 15px; }
 .contact-actions { display: grid; gap: 10px; margin-top: auto; }
 .alt-contact { margin: 0; color: var(--muted); font-size: 14px; }
+.socials-row { display: flex; flex-wrap: wrap; gap: 4px 22px; }
 .map { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); min-height: 400px; background: var(--card); }
 .map iframe { position: relative; z-index: 1; width: 100%; height: 100%; min-height: 400px; border: 0; display: block; }
 .map-fallback { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
@@ -364,7 +366,9 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
 
 .site-footer { border-top: 1px solid var(--border); padding: 32px 0 40px; color: var(--muted); font-size: 14px; }
 .footer-in { display: flex; flex-wrap: wrap; gap: 16px 32px; justify-content: space-between; align-items: center; }
-.footer-in nav { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-logo { width: 48px; height: 48px; border-radius: 50%; flex: none; }
+.footer-brand { display: flex; align-items: center; gap: 14px; }
+.footer-in nav { display: flex; gap: 0 20px; flex-wrap: wrap; }
 .footer-in a { white-space: nowrap; display: inline-block; padding: 11px 0; text-decoration: none; transition: color .18s var(--ease); }
 .footer-in a:hover { color: var(--text); }
 
@@ -412,18 +416,25 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
   .header-loc .map-hint, .header-loc .sep { display: none; }
   .header-loc em { display: block; font-weight: 400; color: var(--muted); }
   .logo-word { font-size: 19px; }
-  .logo-mark { width: 34px; height: 34px; }
+  .logo-img { width: 38px; height: 38px; }
   .hero-actions .btn { width: 100%; min-width: 0; }
   .contact-card { padding: 24px; }
   .light-ctl { left: 8px; right: 8px; bottom: 8px; gap: 2px; padding: 3px; }
   .light-ctl button { font-size: 12px; letter-spacing: .03em; gap: 5px; min-height: 44px; }
   .light-ctl i { width: 6px; height: 6px; }
-  .work-insta b { font-size: 20px; }
+  .foot-lines > span, .footer-in .foot-lines > a { display: block; }
+  .foot-lines .foot-sep { display: none; }
+  .foot-lines a { padding: 11px 0; }
+  .work-insta { padding: 16px; }
+  .work-insta-logo { width: 72px; height: 72px; }
 }
 @media (max-width: 400px) {
   .hero-photo figcaption span { display: none; }
 }
 @media (max-width: 360px) {
+  .work-insta { gap: 8px; padding: 14px; }
+  .work-insta-logo { width: 56px; height: 56px; }
+  .socials a { min-height: 40px; }
   .light-ctl i { display: none; }
   .light-ctl button { letter-spacing: 0; }
   .header-loc svg { display: none; }
@@ -471,6 +482,8 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
     <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.8 2.8L16 9.5"/></g></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z"/></symbol>
     <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+    <symbol id="i-tiktok" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.4 2.6 2.2 4.4 5 4.6"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="m10 9.2 5 2.8-5 2.8z" fill="currentColor"/></g></symbol>
     <symbol id="i-insta" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></g></symbol>
   </defs>
 </svg>
@@ -478,7 +491,7 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
 <header class="site-header">
   <div class="wrap header-in">
     <a class="logo" href="#top" aria-label="VoltMaster, на початок">
-      <span class="logo-mark"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span>
+      <img class="logo-img" src="media/logo-96.webp" srcset="media/logo-96.webp 1x, media/logo-192.webp 2x" width="44" height="44" alt="">
       <span class="logo-word">Volt<b>Master</b></span>
     </a>
     <nav class="nav" aria-label="Розділи">
@@ -492,7 +505,7 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
       <svg aria-hidden="true"><use href="#i-pin"/></svg>
       <div><strong>Корнин<span class="sep">, </span><em>біля Рівного</em></strong><span class="addr">вул. Центральна,&nbsp;41 · </span><span class="map-hint">На мапі</span><span class="sr-only"> (Google Maps)</span></div>
     </a>
-    <a class="btn btn-red header-cta" href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Записатися</a>
+    <a class="btn btn-red header-cta" href="https://t.me/voltmaster_rv_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Записатися</a>
     <button class="theme-toggle" type="button" aria-label="Світла тема" aria-pressed="false">
       <svg class="sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="moon" aria-hidden="true"><use href="#i-moon"/></svg>
     </button>
@@ -507,7 +520,7 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
         <p>Переробка американських ліхтарів, <strong style="white-space:nowrap">Bi&#8209;LED-лінзи</strong>, тюнінг і ремонт&nbsp;фар.</p>
         <p>Працюємо в Корнині біля Рівного, а фари й ліхтарі приймаємо <strong>Новою поштою з усієї України</strong>.</p>
         <div class="hero-actions">
-          <a class="btn btn-red btn-ring" href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Записатися в&nbsp;Telegram</a>
+          <a class="btn btn-red btn-ring" href="https://t.me/voltmaster_rv_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Записатися в&nbsp;Telegram</a>
           <a class="btn btn-ghost" href="#works">Наші роботи</a>
         </div>
         <p class="hero-note">Відкриється Telegram-бот: оберіть послугу й зручний день, майстер передзвонить. Немає Telegram? <a class="link" href="#contacts">Подзвоніть майстру</a></p>
@@ -560,7 +573,7 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
             <h3>Переробка американських ліхтарів</h3>
             <p>В американських авто поворот часто червоний і горить разом зі стопом. Робимо окремий жовтий поворот, як вимагають європейські норми.</p>
             <p class="svc-who">Майстер Руслан, <a href="tel:+380989919979">098 991 99 79</a></p>
-            <a href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener">Записатися в&nbsp;Telegram <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="https://t.me/voltmaster_rv_bot" target="_blank" rel="noopener">Записатися в&nbsp;Telegram <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </article>
         <article class="svc">
@@ -586,7 +599,7 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
             <h3>Bi&#8209;LED-лінзи та ремонт&nbsp;фар</h3>
             <p>Ставимо Bi&#8209;LED-лінзи й ремонтуємо фари, часто все разом. Світло яскраве, з чіткою межею світлотіні, а після регулювання не сліпить зустрічних.</p>
             <p class="svc-who">Майстер Петро, <a href="tel:+380635310552">063 531 05 52</a></p>
-            <a href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener">Записатися в&nbsp;Telegram <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="https://t.me/voltmaster_rv_bot" target="_blank" rel="noopener">Записатися в&nbsp;Telegram <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </article>
         <article class="svc">
@@ -594,7 +607,7 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
           <div class="svc-body">
             <h3>Тюнінг фар і ліхтарів</h3>
             <p>Новий вигляд світла, від діодів до корпусу. Ремонтуємо й задні ліхтарі.</p>
-            <a href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener">Записатися в&nbsp;Telegram <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="https://t.me/voltmaster_rv_bot" target="_blank" rel="noopener">Записатися в&nbsp;Telegram <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </article>
       </div>
@@ -615,11 +628,15 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
         <figure class="work"><video src="media/work-04.mp4" data-poster="media/work-04.webp" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Toyota"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Toyota</figcaption></figure>
         <figure class="work"><video src="media/work-03.mp4" data-poster="media/work-03.webp" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Chrysler 200"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Chrysler 200</figcaption></figure>
         <figure class="work"><video src="media/work-08.mp4" data-poster="media/work-08.webp" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Range Rover Velar, стоп-сигнали"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Range Rover Velar · стоп</figcaption></figure>
-        <a class="work-insta" href="https://www.instagram.com/voltmaster.rv/" target="_blank" rel="noopener">
-          <svg aria-hidden="true"><use href="#i-insta"/></svg>
-          <b>Більше робіт в&nbsp;Instagram</b>
-          <span>@voltmaster.rv</span>
-        </a>
+        <div class="work-insta">
+          <img class="work-insta-logo" src="media/logo-192.webp" width="96" height="96" alt="" loading="lazy">
+          <b>Більше робіт у&nbsp;соцмережах</b>
+          <ul class="socials">
+            <li><a href="https://www.instagram.com/voltmaster.rv/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-insta"/></svg>Instagram</a></li>
+            <li><a href="https://www.tiktok.com/@voltmaster.rv" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>TikTok</a></li>
+            <li><a href="https://www.youtube.com/@voltmaster23" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-youtube"/></svg>YouTube</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -671,9 +688,14 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
           <div class="contact-row"><svg aria-hidden="true"><use href="#i-phone"/></svg><div><b><a class="link" href="tel:+380635310552">063 531 05 52</a></b><span>Петро: передні фари, Bi&#8209;LED</span></div></div>
           <div class="contact-row"><svg aria-hidden="true"><use href="#i-clock"/></svg><div><b>пн–пт, 9:00–20:00</b><span>Вихідні: субота й неділя</span></div></div>
           <div class="contact-actions">
-            <a class="btn btn-red" href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Записатися в&nbsp;Telegram</a>
+            <a class="btn btn-red" href="https://t.me/voltmaster_rv_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Записатися в&nbsp;Telegram</a>
             <a class="btn btn-ghost" href="https://maps.app.goo.gl/CvHZXUUz2emazCJp6" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Маршрут і відгуки в&nbsp;Google</a>
             <p class="alt-contact">Немає Telegram? Подзвоніть або <a class="link" href="https://ig.me/m/voltmaster.rv" target="_blank" rel="noopener">напишіть в&nbsp;Instagram</a></p>
+            <ul class="socials socials-row">
+              <li><a href="https://www.instagram.com/voltmaster.rv/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-insta"/></svg>Instagram</a></li>
+              <li><a href="https://www.tiktok.com/@voltmaster.rv" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>TikTok</a></li>
+              <li><a href="https://www.youtube.com/@voltmaster23" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-youtube"/></svg>YouTube</a></li>
+            </ul>
           </div>
         </div>
         <div class="map">
@@ -694,7 +716,7 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
           <p>Майстер подивиться й назве ціну та строки.</p>
         </div>
         <div class="btns">
-          <a class="btn btn-red" href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Надіслати фото в&nbsp;Telegram</a>
+          <a class="btn btn-red" href="https://t.me/voltmaster_rv_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Надіслати фото в&nbsp;Telegram</a>
           <a class="btn btn-ghost" href="https://ig.me/m/voltmaster.rv" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-insta"/></svg>Або в&nbsp;Instagram</a>
         </div>
       </div>
@@ -704,17 +726,22 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
 
 <footer class="site-footer">
   <div class="wrap footer-in">
-    <span>© Volt Master, Корнин, вул. Центральна,&nbsp;41 · <a href="tel:+380989919979">098 991 99 79</a> · <a href="tel:+380635310552">063 531 05 52</a></span>
+    <div class="footer-brand">
+      <img class="footer-logo" src="media/logo-96.webp" srcset="media/logo-96.webp 1x, media/logo-192.webp 2x" width="48" height="48" alt="Логотип Volt Master" loading="lazy">
+      <span class="foot-lines"><span>© Volt Master, Корнин, вул. Центральна,&nbsp;41</span><span class="foot-sep"> · </span><a href="tel:+380989919979">098 991 99 79</a><span class="foot-sep"> · </span><a href="tel:+380635310552">063 531 05 52</a></span>
+    </div>
     <nav aria-label="Посилання">
-      <a href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://t.me/voltmaster_rv_bot" target="_blank" rel="noopener">Telegram</a>
       <a href="https://www.instagram.com/voltmaster.rv/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@voltmaster.rv" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.youtube.com/@voltmaster23" target="_blank" rel="noopener">YouTube</a>
       <a href="https://maps.app.goo.gl/CvHZXUUz2emazCJp6" target="_blank" rel="noopener">Google Maps</a>
     </nav>
   </div>
 </footer>
 
 <div class="tabbar">
-  <a class="btn btn-red" href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Telegram</a>
+  <a class="btn btn-red" href="https://t.me/voltmaster_rv_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Telegram</a>
   <a class="btn btn-ghost" href="https://maps.app.goo.gl/CvHZXUUz2emazCJp6" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Маршрут</a>
 </div>
 
