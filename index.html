@@ -7,24 +7,29 @@
 <meta name="description" content="Переробка американських ліхтарів, Bi-LED-лінзи, тюнінг і ремонт фар. Корнин біля Рівного, приймаємо Новою поштою з усієї України.">
 <meta name="theme-color" content="#0a0a0b">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="uk_UA">
 <meta property="og:site_name" content="Volt Master">
 <meta property="og:title" content="Volt Master — світло, яке помічають">
 <meta property="og:description" content="Переробка американських ліхтарів, Bi-LED-лінзи, тюнінг і ремонт фар. Корнин біля Рівного або Новою поштою з усієї України.">
-<meta property="og:image" content="media/og.jpg">
+<meta property="og:image" content="https://ddrakkx.github.io/voltmaster-site/media/og.jpg">
+<meta property="og:url" content="https://ddrakkx.github.io/voltmaster-site/">
+<link rel="canonical" href="https://ddrakkx.github.io/voltmaster-site/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600;700&display=swap"></noscript>
+<link rel="preload" as="image" href="media/bmw-tail-640.webp" imagesrcset="media/bmw-tail-640.webp 640w, media/bmw-tail-800.webp 800w, media/bmw-tail.webp 1180w" imagesizes="(max-width: 900px) 100vw, 600px" fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "AutoRepair",
   "name": "Volt Master",
   "description": "Переробка американських ліхтарів, Bi-LED-лінзи, тюнінг і ремонт фар та задніх ліхтарів.",
-  "image": "media/og.jpg",
+  "image": "https://ddrakkx.github.io/voltmaster-site/media/og.jpg",
+  "url": "https://ddrakkx.github.io/voltmaster-site/",
   "address": { "@type": "PostalAddress", "streetAddress": "вул. Центральна, 41", "addressLocality": "Корнин", "addressRegion": "Рівненська область", "addressCountry": "UA" },
   "geo": { "@type": "GeoCoordinates", "latitude": 50.5596886, "longitude": 26.2871954 },
   "telephone": ["+380989919979", "+380635310552"],
@@ -37,6 +42,8 @@
 </script>
 <script>
   document.documentElement.classList.add('js');
+  // запобіжник: якщо основний скрипт не запуститься, через 3 с фото все одно стане світлим
+  setTimeout(function () { document.documentElement.classList.add('js-late'); }, 3000);
   try { var t = localStorage.getItem('vm-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
 </script>
 <style>
@@ -77,7 +84,7 @@ h1, h2, h3 { font-family: Oswald, Impact, sans-serif; font-weight: 600; letter-s
 /* ---------- кнопки */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 28px;
   border-radius: var(--radius-s); border: 1px solid transparent; font: 600 15px/1 Oswald, sans-serif; letter-spacing: .06em;
-  text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background-color .18s var(--ease), transform .12s var(--ease), border-color .18s var(--ease), box-shadow .18s var(--ease); }
+  text-transform: uppercase; text-decoration: none; cursor: pointer; line-height: 1.15; text-align: center; transition: background-color .18s var(--ease), transform .12s var(--ease), border-color .18s var(--ease), box-shadow .18s var(--ease); }
 .btn:active { transform: scale(.96); }
 .btn svg { width: 18px; height: 18px; flex: none; }
 .btn-red { background: var(--red-btn); color: var(--on-red); }
@@ -94,7 +101,7 @@ a[href^="tel:"] { white-space: nowrap; }
 .site-header { position: sticky; top: 0; z-index: 50; background: rgba(10,10,11,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
 html[data-theme="light"] .site-header { background: rgba(232,230,222,.94); }
 .header-in { display: flex; align-items: center; gap: 28px; height: var(--header-h); }
-.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex: none; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex: none; min-height: 44px; }
 .logo-mark { width: 38px; height: 38px; border-radius: 9px; background: var(--red-btn); color: #fff; display: grid; place-items: center; transition: transform .2s var(--ease); }
 .logo:hover .logo-mark { transform: rotate(-8deg); }
 .logo-mark svg { width: 22px; height: 22px; }
@@ -103,7 +110,7 @@ html[data-theme="light"] .site-header { background: rgba(232,230,222,.94); }
 .nav { display: flex; gap: 22px; }
 .nav a { font: 500 13px/1 Oswald, sans-serif; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; color: var(--muted); padding: 8px 0; transition: color .15s; }
 .nav a:hover { color: var(--text); }
-.header-loc { margin-left: auto; display: flex; align-items: center; gap: 10px; font-size: 13px; line-height: 1.35; text-decoration: none; border-radius: 8px; transition: color .18s var(--ease); }
+.header-loc { margin-left: auto; display: flex; align-items: center; min-height: 44px; gap: 10px; font-size: 13px; line-height: 1.35; text-decoration: none; border-radius: 8px; transition: color .18s var(--ease); }
 .header-loc svg { width: 18px; height: 18px; color: var(--muted); flex: none; transition: color .18s var(--ease); }
 .header-loc:hover svg { color: var(--red); }
 .header-loc strong { display: block; font-weight: 600; }
@@ -136,15 +143,17 @@ html[data-theme="light"] .hero { background: linear-gradient(135deg, #ead9d4, va
 .hero-stage { position: absolute; left: 0; right: 0; top: 0; aspect-ratio: 1180 / 1304; transform: translateY(var(--stage-shift)); }
 .hero-stage > img { width: 100%; height: 100%; filter: brightness(var(--photo-b, 1)) saturate(var(--photo-s, 1)); transition: filter .6s cubic-bezier(.2,0,0,1) .15s; }
 .js .hero-photo.is-off { --photo-b: .35; --photo-s: .7; }
+.js-late .hero-photo.is-off:not(.igniting) { --photo-b: 1; --photo-s: 1; }
 .hero-photo figcaption { position: absolute; left: 14px; top: 14px; padding: 7px 12px; border-radius: 8px; background: rgba(10,10,11,.78); color: #fff; font-size: 13px; font-weight: 500; }
 .hero-photo figcaption span { color: rgba(255,255,255,.6); }
+.hero-photo.no-photo .light-ctl, .hero-photo.no-photo figcaption { display: none; }
 
 /* Світло. Основа — фото в режимі «лише габарити» (bmw-tail.jpg). Стоп і поворот —
    це справжні пікселі вихідного фото (знято на гальмі, з жовтою смугою), показані крізь
    маски світловодів (media/m-*.png). Поверх — адитивний ореол і відсвіт на фарбі. */
 .fx { position: absolute; inset: 0; opacity: 0; pointer-events: none;
   -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
-.fx-photo { background: url(media/bmw-m340i.jpg) 0 0 / 100% 100%; }
+.fx-photo { background: var(--orig, none) 0 0 / 100% 100%; }
 .fx-brake { -webkit-mask-image: url(media/m-brake.png); mask-image: url(media/m-brake.png); }
 @property --sweep-r { syntax: "<percentage>"; inherits: false; initial-value: 83.3%; }
 @property --sweep-l { syntax: "<percentage>"; inherits: false; initial-value: 13.1%; }
@@ -173,7 +182,7 @@ html[data-theme="light"] .hero { background: linear-gradient(135deg, #ead9d4, va
 .spill.brk { background: rgba(255,32,32,.22); }
 /* «Привітання»: машина в напівтемряві, ліхтарі загоряються від центру назовні в 3 кроки */
 @property --wel { syntax: "<percentage>"; inherits: false; initial-value: 37%; }
-.fx-welcome { background: url(media/bmw-tail.jpg) 0 0 / 100% 100%; -webkit-mask-composite: source-in; mask-composite: intersect;
+.fx-welcome { background: var(--tail, none) 0 0 / 100% 100%; -webkit-mask-composite: source-in; mask-composite: intersect;
   -webkit-mask-image: url(media/m-all.png), linear-gradient(to right, transparent calc(49.5% - var(--wel)), #000 calc(49.5% - var(--wel)), #000 calc(49.5% + var(--wel)), transparent calc(49.5% + var(--wel)));
   mask-image: url(media/m-all.png), linear-gradient(to right, transparent calc(49.5% - var(--wel)), #000 calc(49.5% - var(--wel)), #000 calc(49.5% + var(--wel)), transparent calc(49.5% + var(--wel))); }
 .hero-photo.is-on .fx-welcome { opacity: 1; }
@@ -253,7 +262,7 @@ html[data-theme="light"] .led-strip { --led-off: rgba(40,35,20,.1); }
 .fact { padding: 32px 24px; border-right: 1px solid var(--border); min-width: 0; }
 .fact:last-child { border-right: 0; }
 .fact b { display: block; font: 600 clamp(26px, 3vw, 38px)/1.1 Oswald, sans-serif; text-transform: uppercase; }
-.fact span { color: var(--muted); font-size: 14px; }
+.fact span { display: block; line-height: 1.4; color: var(--muted); font-size: 14px; }
 
 /* ---------- секції */
 .section { padding: 96px 0; }
@@ -275,7 +284,7 @@ html[data-theme="light"] .led-strip { --led-off: rgba(40,35,20,.1); }
 .svc p { margin: 0 0 22px; color: var(--muted); font-size: 15px; }
 .svc .svc-who { margin: -10px 0 20px; font-size: 14px; color: var(--muted); }
 .svc .svc-who a { margin: 0; display: inline; color: var(--text); font-weight: 600; text-decoration: underline; text-decoration-color: var(--muted-2); text-underline-offset: 3px; }
-.svc a { margin-top: auto; align-self: flex-start; color: var(--text); font-weight: 600; font-size: 14px; text-decoration: none; display: inline-flex; gap: 8px; align-items: center; }
+.svc a { margin-top: auto; align-self: flex-start; padding: 11px 0; margin-bottom: -11px; color: var(--text); font-weight: 600; font-size: 14px; text-decoration: none; display: inline-flex; gap: 8px; align-items: center; }
 .svc a svg { width: 16px; height: 16px; color: var(--red); transition: transform .18s var(--ease); }
 .svc a:hover svg { transform: translateX(4px); }
 /* Bi-LED: світловий пучок із чіткою межею світлотіні */
@@ -338,8 +347,9 @@ html[data-theme="light"] .work-insta { background: linear-gradient(160deg, #f1d6
 .contact-row span { color: var(--muted); font-size: 15px; }
 .contact-actions { display: grid; gap: 10px; margin-top: auto; }
 .alt-contact { margin: 0; color: var(--muted); font-size: 14px; }
-.map { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); min-height: 400px; background: var(--card); }
-.map iframe { width: 100%; height: 100%; min-height: 400px; border: 0; display: block; }
+.map { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); min-height: 400px; background: var(--card); }
+.map iframe { position: relative; z-index: 1; width: 100%; height: 100%; min-height: 400px; border: 0; display: block; }
+.map-fallback { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
 html:not([data-theme="light"]) .map iframe { filter: invert(.9) hue-rotate(180deg) saturate(.6) brightness(.95); }
 
 /* фінальний заклик: LED-смуга — його верхній край */
@@ -355,7 +365,7 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
 .site-footer { border-top: 1px solid var(--border); padding: 32px 0 40px; color: var(--muted); font-size: 14px; }
 .footer-in { display: flex; flex-wrap: wrap; gap: 16px 32px; justify-content: space-between; align-items: center; }
 .footer-in nav { display: flex; gap: 20px; flex-wrap: wrap; }
-.footer-in a { white-space: nowrap; text-decoration: none; transition: color .18s var(--ease); }
+.footer-in a { white-space: nowrap; display: inline-block; padding: 11px 0; text-decoration: none; transition: color .18s var(--ease); }
 .footer-in a:hover { color: var(--text); }
 
 /* мобільна нижня панель */
@@ -374,7 +384,8 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
   .fact:nth-child(2) { border-right: 0; }
   .fact:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
   .services { grid-template-columns: 1fr; }
-  .works { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .works { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .map, .map iframe { min-height: 260px; }
   .how-head, .contact { grid-template-columns: 1fr; gap: 20px; }
   .steps { grid-template-columns: 1fr; gap: 0; }
   .steps-led { display: none; }
@@ -409,6 +420,24 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
   .light-ctl i { width: 6px; height: 6px; }
   .work-insta b { font-size: 20px; }
 }
+@media (max-width: 400px) {
+  .hero-photo figcaption span { display: none; }
+}
+@media (max-width: 360px) {
+  .light-ctl i { display: none; }
+  .light-ctl button { letter-spacing: 0; }
+  .header-loc svg { display: none; }
+}
+/* телефон боком: шапка не липне, нижня панель ховається, перший екран у дві колонки */
+@media (max-height: 500px) and (orientation: landscape) {
+  .site-header { position: static; }
+  .tabbar { display: none; }
+  body { padding-bottom: 0; }
+  .hero-in { grid-template-columns: 1fr 1fr; gap: 24px; padding-top: 28px; padding-bottom: 36px; }
+  .hero h1 { font-size: 40px; margin-bottom: 14px; }
+  .hero p { font-size: 15px; margin-bottom: 10px; }
+  .hero-photo { aspect-ratio: 1180 / 1080; --stage-shift: -10.65%; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
@@ -421,6 +450,7 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
   .led-strip.run i { animation: none; }
 }
 </style>
+<noscript><style>.work-play { display: none; }</style></noscript>
 </head>
 <body>
 
@@ -447,7 +477,7 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
 
 <header class="site-header">
   <div class="wrap header-in">
-    <a class="logo" href="#top" aria-label="Volt Master, на початок">
+    <a class="logo" href="#top" aria-label="VoltMaster, на початок">
       <span class="logo-mark"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span>
       <span class="logo-word">Volt<b>Master</b></span>
     </a>
@@ -458,9 +488,9 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
       <a href="#faq">Запитання</a>
       <a href="#contacts">Контакти</a>
     </nav>
-    <a class="header-loc" href="https://maps.app.goo.gl/CvHZXUUz2emazCJp6" target="_blank" rel="noopener" aria-label="Корнин, вулиця Центральна, 41: відкрити в Google Maps">
+    <a class="header-loc" href="https://maps.app.goo.gl/CvHZXUUz2emazCJp6" target="_blank" rel="noopener">
       <svg aria-hidden="true"><use href="#i-pin"/></svg>
-      <div><strong>Корнин<span class="sep">, </span><em>біля Рівного</em></strong><span class="addr">вул. Центральна, 41 · </span><span class="map-hint">На мапі</span></div>
+      <div><strong>Корнин<span class="sep">, </span><em>біля Рівного</em></strong><span class="addr">вул. Центральна,&nbsp;41 · </span><span class="map-hint">На мапі</span><span class="sr-only"> (Google Maps)</span></div>
     </a>
     <a class="btn btn-red header-cta" href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Записатися</a>
     <button class="theme-toggle" type="button" aria-label="Світла тема" aria-pressed="false">
@@ -474,17 +504,17 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
     <div class="wrap hero-in">
       <div>
         <h1>Світло, яке<br><span class="accent">помічають</span></h1>
-        <p>Переробка американських ліхтарів, <strong style="white-space:nowrap">Bi-LED-лінзи</strong>, тюнінг і ремонт фар.</p>
+        <p>Переробка американських ліхтарів, <strong style="white-space:nowrap">Bi&#8209;LED-лінзи</strong>, тюнінг і ремонт&nbsp;фар.</p>
         <p>Працюємо в Корнині біля Рівного, а фари й ліхтарі приймаємо <strong>Новою поштою з усієї України</strong>.</p>
         <div class="hero-actions">
-          <a class="btn btn-red btn-ring" href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Записатися в Telegram</a>
+          <a class="btn btn-red btn-ring" href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Записатися в&nbsp;Telegram</a>
           <a class="btn btn-ghost" href="#works">Наші роботи</a>
         </div>
         <p class="hero-note">Відкриється Telegram-бот: оберіть послугу й зручний день, майстер передзвонить. Немає Telegram? <a class="link" href="#contacts">Подзвоніть майстру</a></p>
       </div>
       <figure class="hero-photo is-off">
         <div class="hero-stage">
-          <img src="media/bmw-tail.jpg" srcset="media/bmw-tail-640.jpg 640w, media/bmw-tail.jpg 1180w" sizes="(max-width: 900px) 100vw, 600px"
+          <img src="media/bmw-tail-640.webp" srcset="media/bmw-tail-640.webp 640w, media/bmw-tail-800.webp 800w, media/bmw-tail.webp 1180w" sizes="(max-width: 900px) 100vw, 600px"
             alt="BMW M340i із задніми ліхтарями після роботи Volt Master" width="1180" height="1304" fetchpriority="high">
           <div aria-hidden="true">
             <i class="fx fx-welcome"></i>
@@ -511,7 +541,7 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
   <div class="wrap">
     <div class="facts">
       <div class="fact"><b>1 день</b><span>на більшість робіт</span></div>
-      <div class="fact"><b>від 1 року</b><span>гарантія на роботу</span></div>
+      <div class="fact"><b>від 1&nbsp;року</b><span>гарантія на роботу</span></div>
       <div class="fact"><b>вся Україна</b><span>приймаємо Новою поштою</span></div>
       <div class="fact"><b>за фото</b><span>називаємо ціну</span></div>
     </div>
@@ -521,16 +551,16 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
     <div class="wrap">
       <div class="section-head">
         <h2>Що <span class="accent">робимо</span></h2>
-        <p>Зазвичай від 100&nbsp;$, найчастіше близько 200&nbsp;$, але буває по-різному. Точну ціну майстер назве, коли знатиме марку, модель і рік та побачить фото.</p>
+        <p>Зазвичай від 100&nbsp;$, найчастіше близько 200&nbsp;$, але буває по&#8209;різному. Точну ціну майстер назве, коли знатиме марку, модель і рік та побачить фото.</p>
       </div>
       <div class="services">
         <article class="svc">
-          <div class="svc-media"><img src="media/work-03.jpg" alt="Chrysler 200 із переробленими задніми ліхтарями" loading="lazy" width="540" height="960" style="object-position:50% 52%"></div>
+          <div class="svc-media"><img src="media/work-03.webp" alt="Chrysler 200 із переробленими задніми ліхтарями" loading="lazy" width="540" height="960" style="object-position:50% 52%"></div>
           <div class="svc-body">
             <h3>Переробка американських ліхтарів</h3>
             <p>В американських авто поворот часто червоний і горить разом зі стопом. Робимо окремий жовтий поворот, як вимагають європейські норми.</p>
             <p class="svc-who">Майстер Руслан, <a href="tel:+380989919979">098 991 99 79</a></p>
-            <a href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener">Записатися в Telegram <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener">Записатися в&nbsp;Telegram <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </article>
         <article class="svc">
@@ -549,22 +579,22 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
               <path d="M70 128 L230 122 L400 82" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="1.5"/>
               <circle cx="58" cy="140" r="26" fill="#0d0d10" stroke="#5a7bd6" stroke-width="3"/>
               <circle cx="58" cy="140" r="17" fill="url(#lensg)"/>
-              <text x="236" y="112" fill="rgba(255,255,255,.55)" font-family="Inter, sans-serif" font-size="11">межа світлотіні</text>
+              <text x="232" y="100" fill="rgba(255,255,255,.6)" font-family="Inter, sans-serif" font-size="16">межа світлотіні</text>
             </svg>
           </div>
           <div class="svc-body">
-            <h3>Bi-LED-лінзи та ремонт фар</h3>
-            <p>Ставимо Bi-LED-лінзи й ремонтуємо фари, часто все разом. Світло яскраве, з чіткою межею світлотіні, а після регулювання не сліпить зустрічних.</p>
+            <h3>Bi&#8209;LED-лінзи та ремонт&nbsp;фар</h3>
+            <p>Ставимо Bi&#8209;LED-лінзи й ремонтуємо фари, часто все разом. Світло яскраве, з чіткою межею світлотіні, а після регулювання не сліпить зустрічних.</p>
             <p class="svc-who">Майстер Петро, <a href="tel:+380635310552">063 531 05 52</a></p>
-            <a href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener">Записатися в Telegram <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener">Записатися в&nbsp;Telegram <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </article>
         <article class="svc">
-          <div class="svc-media"><img src="media/work-06.jpg" alt="Hyundai Ioniq 5 із піксельними задніми ліхтарями" loading="lazy" width="540" height="960" style="object-position:50% 40%"></div>
+          <div class="svc-media"><img src="media/work-06.webp" alt="Hyundai Ioniq 5 із піксельними задніми ліхтарями" loading="lazy" width="540" height="960" style="object-position:50% 40%"></div>
           <div class="svc-body">
             <h3>Тюнінг фар і ліхтарів</h3>
             <p>Новий вигляд світла, від діодів до корпусу. Ремонтуємо й задні ліхтарі.</p>
-            <a href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener">Записатися в Telegram <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener">Записатися в&nbsp;Telegram <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </article>
       </div>
@@ -578,16 +608,16 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
         <p>Відео з авто, що побували в нас. Натисніть, щоб подивитися зі звуком.</p>
       </div>
       <div class="works">
-        <figure class="work"><video src="media/work-06.mp4" poster="media/work-06.jpg" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Hyundai Ioniq 5"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Hyundai Ioniq 5</figcaption></figure>
-        <figure class="work"><video src="media/work-02.mp4" poster="media/work-02.jpg" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Audi"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Audi</figcaption></figure>
-        <figure class="work"><video src="media/work-07.mp4" poster="media/work-07.jpg" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Range Rover Velar"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Range Rover Velar</figcaption></figure>
-        <figure class="work"><video src="media/work-01.mp4" poster="media/work-01.jpg" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Chevrolet"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Chevrolet</figcaption></figure>
-        <figure class="work"><video src="media/work-04.mp4" poster="media/work-04.jpg" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Toyota"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Toyota</figcaption></figure>
-        <figure class="work"><video src="media/work-03.mp4" poster="media/work-03.jpg" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Chrysler 200"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Chrysler 200</figcaption></figure>
-        <figure class="work"><video src="media/work-08.mp4" poster="media/work-08.jpg" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Range Rover Velar, стоп-сигнали"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Range Rover Velar</figcaption></figure>
+        <figure class="work"><video src="media/work-06.mp4" data-poster="media/work-06.webp" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Hyundai Ioniq 5"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Hyundai Ioniq&nbsp;5</figcaption></figure>
+        <figure class="work"><video src="media/work-02.mp4" data-poster="media/work-02.webp" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Audi"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Audi</figcaption></figure>
+        <figure class="work"><video src="media/work-07.mp4" data-poster="media/work-07.webp" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Range Rover Velar"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Range Rover Velar</figcaption></figure>
+        <figure class="work"><video src="media/work-01.mp4" data-poster="media/work-01.webp" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Chevrolet"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Chevrolet</figcaption></figure>
+        <figure class="work"><video src="media/work-04.mp4" data-poster="media/work-04.webp" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Toyota"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Toyota</figcaption></figure>
+        <figure class="work"><video src="media/work-03.mp4" data-poster="media/work-03.webp" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Chrysler 200"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Chrysler 200</figcaption></figure>
+        <figure class="work"><video src="media/work-08.mp4" data-poster="media/work-08.webp" preload="none" playsinline loop></video><button class="work-play" type="button" aria-label="Увімкнути відео: Range Rover Velar, стоп-сигнали"><span><svg aria-hidden="true"><use href="#i-play"/></svg></span></button><figcaption>Range Rover Velar · стоп</figcaption></figure>
         <a class="work-insta" href="https://www.instagram.com/voltmaster.rv/" target="_blank" rel="noopener">
           <svg aria-hidden="true"><use href="#i-insta"/></svg>
-          <b>Більше робіт в Instagram</b>
+          <b>Більше робіт в&nbsp;Instagram</b>
           <span>@voltmaster.rv</span>
         </a>
       </div>
@@ -619,14 +649,14 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
     <div class="wrap">
       <div class="section-head"><h2>Часті <span class="accent">запитання</span></h2></div>
       <div class="faq">
-        <details><summary>Яка ціна?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="ans"><p>Зазвичай від 100&nbsp;$, найчастіше близько 200&nbsp;$, але буває по-різному. Точна ціна залежить від марки, моделі, року й комплектації: навіть в однакових авто оптика буває різна. Тому напишіть марку, модель і рік та надішліть фото фар чи ліхтарів, і майстер порахує.</p></div></details>
+        <details><summary>Яка ціна?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="ans"><p>Зазвичай від 100&nbsp;$, найчастіше близько 200&nbsp;$, але буває по&#8209;різному. Точна ціна залежить від марки, моделі, року й комплектації: навіть в однакових авто оптика буває різна. Тому напишіть марку, модель і рік та надішліть фото фар чи ліхтарів, і майстер порахує.</p></div></details>
         <details><summary>Скільки триває робота?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="ans"><p>Здебільшого 1 день. Точний час майстер назве, коли побачить авто.</p></div></details>
         <details><summary>Чи можна почекати на місці?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="ans"><p>Так, на коротких роботах можна дочекатися. Про довші попередимо заздалегідь.</p></div></details>
         <details><summary>Чи є гарантія?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="ans"><p>Так, гарантія на роботу щонайменше рік.</p></div></details>
         <details><summary>Як можна оплатити?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="ans"><p>Готівкою, карткою або безготівково на рахунок ФОП.</p></div></details>
         <details><summary>Чи можна надіслати поштою?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="ans"><p>Так, приймаємо фари й ліхтарі Новою поштою з усієї України. Залиште заявку, і майстер напише, куди надсилати.</p></div></details>
         <details><summary>Чи буває знижка?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="ans"><p>Так, якщо ліхтарі можуть полежати в нас тиждень чи довше, зробимо дешевше. Деталі уточнить майстер.</p></div></details>
-        <details><summary>У мене немає Telegram<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="ans"><p>Подзвоніть майстру. Задні ліхтарі й жовті повороти: Руслан, <a class="link" href="tel:+380989919979">098 991 99 79</a>. Передні фари й Bi-LED: Петро, <a class="link" href="tel:+380635310552">063 531 05 52</a>. Або напишіть в <a class="link" href="https://ig.me/m/voltmaster.rv" target="_blank" rel="noopener">Instagram</a>.</p></div></details>
+        <details><summary>У мене немає Telegram<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="ans"><p>Подзвоніть майстру. Задні ліхтарі й жовті повороти: Руслан, <a class="link" href="tel:+380989919979">098 991 99 79</a>. Передні фари й Bi&#8209;LED: Петро, <a class="link" href="tel:+380635310552">063 531 05 52</a>. Або напишіть в <a class="link" href="https://ig.me/m/voltmaster.rv" target="_blank" rel="noopener">Instagram</a>.</p></div></details>
       </div>
     </div>
   </section>
@@ -636,17 +666,18 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
       <div class="section-head"><h2>Як нас <span class="accent">знайти</span></h2></div>
       <div class="contact">
         <div class="contact-card">
-          <div class="contact-row"><svg aria-hidden="true"><use href="#i-pin"/></svg><div><b>Корнин, вул. Центральна, 41</b><span>Біля Рівного</span></div></div>
+          <div class="contact-row"><svg aria-hidden="true"><use href="#i-pin"/></svg><div><b>Корнин, вул. Центральна,&nbsp;41</b><span>Біля Рівного</span></div></div>
           <div class="contact-row"><svg aria-hidden="true"><use href="#i-phone"/></svg><div><b><a class="link" href="tel:+380989919979">098 991 99 79</a></b><span>Руслан: задні ліхтарі, жовті повороти</span></div></div>
-          <div class="contact-row"><svg aria-hidden="true"><use href="#i-phone"/></svg><div><b><a class="link" href="tel:+380635310552">063 531 05 52</a></b><span>Петро: передні фари, Bi-LED</span></div></div>
+          <div class="contact-row"><svg aria-hidden="true"><use href="#i-phone"/></svg><div><b><a class="link" href="tel:+380635310552">063 531 05 52</a></b><span>Петро: передні фари, Bi&#8209;LED</span></div></div>
           <div class="contact-row"><svg aria-hidden="true"><use href="#i-clock"/></svg><div><b>пн–пт, 9:00–20:00</b><span>Вихідні: субота й неділя</span></div></div>
           <div class="contact-actions">
-            <a class="btn btn-red" href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Записатися в Telegram</a>
-            <a class="btn btn-ghost" href="https://maps.app.goo.gl/CvHZXUUz2emazCJp6" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Маршрут і відгуки в Google</a>
-            <p class="alt-contact">Немає Telegram? Подзвоніть або <a class="link" href="https://ig.me/m/voltmaster.rv" target="_blank" rel="noopener">напишіть в Instagram</a></p>
+            <a class="btn btn-red" href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Записатися в&nbsp;Telegram</a>
+            <a class="btn btn-ghost" href="https://maps.app.goo.gl/CvHZXUUz2emazCJp6" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Маршрут і відгуки в&nbsp;Google</a>
+            <p class="alt-contact">Немає Telegram? Подзвоніть або <a class="link" href="https://ig.me/m/voltmaster.rv" target="_blank" rel="noopener">напишіть в&nbsp;Instagram</a></p>
           </div>
         </div>
         <div class="map">
+          <a class="map-fallback" href="https://maps.app.goo.gl/CvHZXUUz2emazCJp6" target="_blank" rel="noopener">Відкрити мапу в&nbsp;Google Maps</a>
           <iframe title="Volt Master на мапі" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
             src="https://maps.google.com/maps?q=50.5596886,26.2871954&z=15&hl=uk&output=embed"></iframe>
         </div>
@@ -663,8 +694,8 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
           <p>Майстер подивиться й назве ціну та строки.</p>
         </div>
         <div class="btns">
-          <a class="btn btn-red" href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Надіслати фото в Telegram</a>
-          <a class="btn btn-ghost" href="https://ig.me/m/voltmaster.rv" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-insta"/></svg>Або в Instagram</a>
+          <a class="btn btn-red" href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-send"/></svg>Надіслати фото в&nbsp;Telegram</a>
+          <a class="btn btn-ghost" href="https://ig.me/m/voltmaster.rv" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-insta"/></svg>Або в&nbsp;Instagram</a>
         </div>
       </div>
     </div>
@@ -673,7 +704,7 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
 
 <footer class="site-footer">
   <div class="wrap footer-in">
-    <span>© Volt Master, Корнин, вул. Центральна, 41 · <a href="tel:+380989919979">098 991 99 79</a> · <a href="tel:+380635310552">063 531 05 52</a></span>
+    <span>© Volt Master, Корнин, вул. Центральна,&nbsp;41 · <a href="tel:+380989919979">098 991 99 79</a> · <a href="tel:+380635310552">063 531 05 52</a></span>
     <nav aria-label="Посилання">
       <a href="https://t.me/voltmaster_demo_bot" target="_blank" rel="noopener">Telegram</a>
       <a href="https://www.instagram.com/voltmaster.rv/" target="_blank" rel="noopener">Instagram</a>
@@ -773,11 +804,28 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
     setTimeout(function () { photo.classList.remove('igniting'); }, 320);
   }
   var heroImg = photo.querySelector('img');
+  // шари світла беруть ту саму картинку, що вже завантажена для фото (640 чи 1180),
+  // а оригінал «на гальмі» вантажимо лише після всієї сторінки
+  function setLayers() {
+    var m = (heroImg.currentSrc || heroImg.src).match(/-(640|800)\.webp/), suffix = m ? '-' + m[1] : '';
+    photo.style.setProperty('--tail', 'url(' + (heroImg.currentSrc || heroImg.src) + ')');
+    var orig = function () { photo.style.setProperty('--orig', 'url(media/bmw-m340i' + suffix + '.webp)'); };
+    if (document.readyState === 'complete') setTimeout(orig, 300); else window.addEventListener('load', function () { setTimeout(orig, 300); });
+  }
+  if (heroImg.complete) setLayers(); else heroImg.addEventListener('load', setLayers);
+  // фото не завантажилось: кнопки світла нічого б не робили, тож ховаємо їх
+  heroImg.addEventListener('error', function () { photo.classList.add('no-photo'); });
   function start() { setTimeout(function () { ignite(false); }, reduced ? 0 : 350); }
   if (heroImg.complete) start(); else { heroImg.addEventListener('load', start); heroImg.addEventListener('error', start); }
   setTimeout(function () { ignite(false); }, 1600);
   // поза екраном поворот не блимає
   if (hasIO) new IntersectionObserver(function (es) { photo.classList.toggle('paused', !es[0].isIntersecting); }).observe(photo);
+
+  // обкладинки відео підвантажуємо, коли до плитки лишається ~1,5 екрана
+  var lazy = Array.prototype.slice.call(document.querySelectorAll('video[data-poster]'));
+  function setPoster(v) { if (!v.poster) v.poster = v.getAttribute('data-poster'); }
+  if (hasIO) { var pio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { setPoster(e.target); pio.unobserve(e.target); } }); }, { rootMargin: '1200px 0px' }); lazy.forEach(function (v) { pio.observe(v); }); }
+  else lazy.forEach(setPoster);
 
   // Відео робіт: на компʼютері — тихий перегляд при наведенні, по натисканню — зі звуком
   var works = Array.prototype.slice.call(document.querySelectorAll('.work'));
@@ -801,6 +849,8 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
       }
     });
     v.addEventListener('play', function () { if (v.controls) fig.classList.add('playing'); });
+    // відео не відкрилось — прибираємо плитку, щоб не було чорного екрана
+    v.addEventListener('error', function () { fig.style.display = 'none'; });
     v.addEventListener('pause', function () { if (!v.controls) fig.classList.remove('playing'); });
     if (hover) {
       fig.addEventListener('mouseenter', function () { if (!v.controls) { v.muted = true; var p = v.play(); if (p && p.catch) p.catch(function () {}); } });
