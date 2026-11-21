@@ -527,7 +527,7 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
 </header>
 
 <main id="top">
-  <section class="hero">
+  <section class="hero lit">
     <div class="wrap hero-in">
       <div>
         <h1>Світло, яке<br><span class="accent">помічають</span></h1>
@@ -539,7 +539,7 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
         </div>
         <p class="hero-note">Відкриється Telegram-бот: оберіть послугу й зручний день, майстер передзвонить. Немає Telegram? <a class="link" href="#contacts">Подзвоніть майстру</a></p>
       </div>
-      <figure class="hero-photo is-off">
+      <figure class="hero-photo is-on">
         <div class="hero-stage">
           <img src="media/bmw-tail-640.webp" srcset="media/bmw-tail-640.webp 640w, media/bmw-tail-800.webp 800w, media/bmw-tail.webp 1180w" sizes="(max-width: 900px) 100vw, 600px"
             alt="BMW M340i із задніми ліхтарями після роботи Volt Master" width="1180" height="1304" fetchpriority="high">
@@ -582,7 +582,7 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
       </div>
       <div class="services">
         <article class="svc">
-          <div class="svc-media"><img src="media/work-03.webp" alt="Chrysler 200 із переробленими задніми ліхтарями" loading="lazy" width="540" height="960" style="object-position:50% 52%"></div>
+          <div class="svc-media"><img src="media/work-bmw3-720.webp" srcset="media/work-bmw3-400.webp 400w, media/work-bmw3-720.webp 720w, media/work-bmw3-1080.webp 1080w" sizes="(max-width: 900px) 92vw, 400px" alt="BMW 3 серії з переробленими задніми ліхтарями" loading="lazy" decoding="async" width="1080" height="1440" style="object-position:50% 45%"></div>
           <div class="svc-body">
             <h3>Переробка американських ліхтарів</h3>
             <p>В американських авто поворот часто червоний і горить разом зі стопом. Робимо окремий жовтий поворот, як вимагають європейські норми.</p>
@@ -812,7 +812,8 @@ html[data-theme="light"] .closing { background: linear-gradient(120deg, #f1d6d2,
   // Світло на фото. Габарити / поворот / аварійка — режими; «Стоп» — як педаль: горить, поки тримаєте
   var photo = document.querySelector('.hero-photo'), hero = document.querySelector('.hero');
   var ctl = Array.prototype.slice.call(document.querySelectorAll('.light-ctl button'));
-  var mode = 'tail', braking = false, brakeTimer = null, pressedAt = 0, lit = false;
+  // габарити горять одразу з першого кадру, без затемнення й «привітання» (замовник 21.11)
+  var mode = 'tail', braking = false, brakeTimer = null, pressedAt = 0, lit = true;
   function syncClocks() {
     // лампи й крапки на кнопках блимають від одного годинника, аварійка — обидва боки в фазі
     if (!photo.getAnimations || !document.timeline) return;
